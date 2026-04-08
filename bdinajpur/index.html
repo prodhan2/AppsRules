@@ -176,6 +176,52 @@
       }
     }
 
+    .language-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .lang-btn {
+      padding: 8px 14px;
+      border: none;
+      background: transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .lang-btn.active {
+      background: var(--brand);
+      color: white;
+    }
+
+    .lang-btn:hover {
+      background: rgba(15, 139, 141, 0.15);
+    }
+
+    .lang-btn.active:hover {
+      background: #0a6a6c;
+    }
+
+    [lang="bn"] { display: none; }
+    body.bn-mode [lang="en"] { display: none; }
+    body.bn-mode [lang="bn"] { display: inline; }
+
     @media (max-width: 640px) {
       .wrap {
         margin: 20px auto;
@@ -190,131 +236,319 @@
       .subtitle {
         font-size: 0.98rem;
       }
+
+      .language-toggle {
+        top: 10px;
+        right: 10px;
+      }
+
+      .lang-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
 
+  <div class="language-toggle">
+    <button class="lang-btn active" onclick="setLanguage('en')">
+      <span lang="en">English</span>
+      <span lang="bn">ইংরেজি</span>
+    </button>
+    <button class="lang-btn" onclick="setLanguage('bn')">
+      <span lang="en">বাংলা</span>
+      <span lang="bn">বাংলা</span>
+    </button>
+  </div>
+
   <main class="wrap">
     <section class="hero">
-      <span class="kicker">BeautifulDinajpur</span>
-      <h1>Privacy Policy</h1>
+      <span class="kicker">
+        <span lang="en">BeautifulDinajpur</span>
+        <span lang="bn">বিউটিফুল দিনাজপুর</span>
+      </span>
+      <h1>
+        <span lang="en">Privacy Policy</span>
+        <span lang="bn">গোপনীয়তা নীতি</span>
+      </h1>
       <p class="subtitle">
-        BeautifulDinajpur (package name: com.beautiful.dinajpur.v2) is provided by Sujan Prodhan (ButterflyDevs).
-        This Privacy Policy explains how we collect, use, and protect information when you use the app.
-        By using BeautifulDinajpur, you agree to this Policy.
+        <span lang="en">
+          BeautifulDinajpur (package name: com.beautiful.dinajpur.v2) is provided by Sujan Prodhan (ButterflyDevs).
+          This Privacy Policy explains how we collect, use, and protect information when you use the app.
+          By using BeautifulDinajpur, you agree to this Policy.
+        </span>
+        <span lang="bn">
+          বিউটিফুল দিনাজপুর (প্যাকেজ নাম: com.beautiful.dinajpur.v2) সুজন প্রোধান (বাটারফ্লাইডেভস) দ্বারা প্রদান করা হয়।
+          এই গোপনীয়তা নীতি ব্যাখ্যা করে যে আমরা কীভাবে তথ্য সংগ্রহ, ব্যবহার এবং সুরক্ষা করি যখন আপনি অ্যাপটি ব্যবহার করেন।
+          বিউটিফুল দিনাজপুর ব্যবহার করে, আপনি এই নীতিতে সম্মত হন।
+        </span>
       </p>
       <div class="meta">
-        <span class="pill">Effective Date: April 29, 2020 (Updated 2026)</span>
-        <span class="pill">Country/Region: Bangladesh</span>
+        <span class="pill">
+          <span lang="en">Effective Date: April 29, 2020 (Updated 2026)</span>
+          <span lang="bn">কার্যকর তারিখ: এপ্রিল ২৯, ২০২০ (আপডেট ২০২৬)</span>
+        </span>
+        <span class="pill">
+          <span lang="en">Country/Region: Bangladesh</span>
+          <span lang="bn">দেশ/অঞ্চল: বাংলাদেশ</span>
+        </span>
       </div>
     </section>
 
     <section class="section">
-      <h2>Information We Collect</h2>
+      <h2>
+        <span lang="en">Information We Collect</span>
+        <span lang="bn">আমরা যে তথ্য সংগ্রহ করি</span>
+      </h2>
       <ul>
-        <li>Device information (model, OS version, language, country).</li>
-        <li>Usage analytics (events, screens, interactions).</li>
-        <li>Crash and performance data.</li>
-        <li>Sign-up and profile information you provide (for example, name, email, profile image, upazilla, blood group, and other profile details).</li>
-        <li>Push notification tokens to deliver messages.</li>
+        <li>
+          <span lang="en">Device information (model, OS version, language, country).</span>
+          <span lang="bn">ডিভাইস তথ্য (মডেল, OS সংস্করণ, ভাষা, দেশ)।</span>
+        </li>
+        <li>
+          <span lang="en">Usage analytics (events, screens, interactions).</span>
+          <span lang="bn">ব্যবহারের বিশ্লেষণ (ইভেন্ট, স্ক্রিন, ইন্টারঅ্যাকশন)।</span>
+        </li>
+        <li>
+          <span lang="en">Crash and performance data.</span>
+          <span lang="bn">ক্র্যাশ এবং পারফরম্যান্স ডেটা।</span>
+        </li>
+        <li>
+          <span lang="en">Sign-up and profile information you provide (for example, name, email, profile image, upazilla, blood group, and other profile details).</span>
+          <span lang="bn">আপনি প্রদান করা সাইন-আপ এবং প্রোফাইল তথ্য (উদাহরণস্বরূপ, নাম, ইমেইল, প্রোফাইল ছবি, উপজেলা, রক্তের গ্রুপ এবং অন্যান্য প্রোফাইল বিবরণ)।</span>
+        </li>
+        <li>
+          <span lang="en">Push notification tokens to deliver messages.</span>
+          <span lang="bn">বার্তা সরবরাহ করার জন্য পুশ বিজ্ঞপ্তি টোকেন।</span>
+        </li>
       </ul>
     </section>
 
     <section class="section">
-      <h2>Permissions and Purpose</h2>
+      <h2>
+        <span lang="en">Permissions and Purpose</span>
+        <span lang="bn">অনুমতি এবং উদ্দেশ্য</span>
+      </h2>
       <ul>
-        <li>Approximate or precise location to provide location-based features.</li>
-        <li>Camera to capture photos or videos.</li>
-        <li>Photos/Media to select or store images and other media.</li>
-        <li>Contacts to invite or connect with others (if you choose).</li>
-        <li>Files/Storage to import, export, or cache content.</li>
+        <li>
+          <span lang="en">Approximate or precise location to provide location-based features.</span>
+          <span lang="bn">স্থান-ভিত্তিক বৈশিষ্ট্য প্রদান করার জন্য আনুমানিক বা নির্ভুল অবস্থান।</span>
+        </li>
+        <li>
+          <span lang="en">Camera to capture photos or videos.</span>
+          <span lang="bn">ছবি বা ভিডিও ক্যাপচার করার জন্য ক্যামেরা।</span>
+        </li>
+        <li>
+          <span lang="en">Photos/Media to select or store images and other media.</span>
+          <span lang="bn">ছবি এবং অন্যান্য মিডিয়া নির্বাচন বা সংরক্ষণ করতে ফটো/মিডিয়া।</span>
+        </li>
+        <li>
+          <span lang="en">Contacts to invite or connect with others (if you choose).</span>
+          <span lang="bn">অন্যদের সাথে আমন্ত্রণ জানাতে বা সংযোগ করতে যোগাযোগ (যদি আপনি চান)।</span>
+        </li>
+        <li>
+          <span lang="en">Files/Storage to import, export, or cache content.</span>
+          <span lang="bn">বিষয়বস্তু আমদানি, রপ্তানি বা ক্যাশ করতে ফাইল/স্টোরেজ।</span>
+        </li>
       </ul>
     </section>
 
     <section class="section">
-      <h2>How We Use Information</h2>
+      <h2>
+        <span lang="en">How We Use Information</span>
+        <span lang="bn">আমরা তথ্য কীভাবে ব্যবহার করি</span>
+      </h2>
       <ul>
-        <li>Provide and improve app functionality.</li>
-        <li>Personalize content and features.</li>
-        <li>Measure usage and better understand product performance.</li>
-        <li>Diagnose crashes and improve stability.</li>
-        <li>Send push notifications you opt into (you may disable in settings).</li>
+        <li>
+          <span lang="en">Provide and improve app functionality.</span>
+          <span lang="bn">অ্যাপ কার্যকারিতা প্রদান এবং উন্নত করুন।</span>
+        </li>
+        <li>
+          <span lang="en">Personalize content and features.</span>
+          <span lang="bn">বিষয়বস্তু এবং বৈশিষ্ট্য ব্যক্তিগতকৃত করুন।</span>
+        </li>
+        <li>
+          <span lang="en">Measure usage and better understand product performance.</span>
+          <span lang="bn">ব্যবহার পরিমাপ করুন এবং পণ্য পারফরম্যান্স আরও ভালভাবে বুঝুন।</span>
+        </li>
+        <li>
+          <span lang="en">Diagnose crashes and improve stability.</span>
+          <span lang="bn">ক্র্যাশ নির্ণয় করুন এবং স্থিতিশীলতা উন্নত করুন।</span>
+        </li>
+        <li>
+          <span lang="en">Send push notifications you opt into (you may disable in settings).</span>
+          <span lang="bn">আপনি অপ্ট-ইন পুশ বিজ্ঞপ্তি পাঠান (আপনি সেটিংসে অক্ষম করতে পারেন)।</span>
+        </li>
       </ul>
     </section>
 
     <section class="section">
-      <h2>Sharing of Information</h2>
+      <h2>
+        <span lang="en">Sharing of Information</span>
+        <span lang="bn">তথ্য ভাগ করা</span>
+      </h2>
       <ul>
-        <li>Analytics providers (for example, Google Analytics for Firebase).</li>
-        <li>Crash reporting providers (for example, Firebase Crashlytics).</li>
-        <li>Push notifications provider (for example, Firebase Cloud Messaging).</li>
-        <li>Authentication providers when you sign in (for example, email, OAuth).</li>
-        <li>Service providers that help us operate the app (hosting, support) under confidentiality obligations.</li>
-        <li>Legal authorities if required by law, to protect rights, or investigate misuse.</li>
+        <li>
+          <span lang="en">Analytics providers (for example, Google Analytics for Firebase).</span>
+          <span lang="bn">বিশ্লেষণ প্রদানকারী (উদাহরণস্বরূপ, ফায়ারবেসের জন্য Google Analytics)।</span>
+        </li>
+        <li>
+          <span lang="en">Crash reporting providers (for example, Firebase Crashlytics).</span>
+          <span lang="bn">ক্র্যাশ রিপোর্টিং প্রদানকারী (উদাহরণস্বরূপ, Firebase Crashlytics)।</span>
+        </li>
+        <li>
+          <span lang="en">Push notifications provider (for example, Firebase Cloud Messaging).</span>
+          <span lang="bn">পুশ বিজ্ঞপ্তি প্রদানকারী (উদাহরণস্বরূপ, Firebase Cloud Messaging)।</span>
+        </li>
+        <li>
+          <span lang="en">Authentication providers when you sign in (for example, email, OAuth).</span>
+          <span lang="bn">যখন আপনি সাইন ইন করেন তখন প্রমাণীকরণ প্রদানকারী (উদাহরণস্বরূপ, ইমেইল, OAuth)।</span>
+        </li>
+        <li>
+          <span lang="en">Service providers that help us operate the app (hosting, support) under confidentiality obligations.</span>
+          <span lang="bn">সেবা প্রদানকারী যারা আমাদের অ্যাপ পরিচালনা করতে সাহায্য করে (হোস্টিং, সমর্থন) গোপনীয়তা বাধ্যবাধকতার অধীনে।</span>
+        </li>
+        <li>
+          <span lang="en">Legal authorities if required by law, to protect rights, or investigate misuse.</span>
+          <span lang="bn">আইনি কর্তৃপক্ষ যদি আইন দ্বারা প্রয়োজন হয়, অধিকার রক্ষা করতে বা অপব্যবহার তদন্ত করতে।</span>
+        </li>
       </ul>
     </section>
 
     <section class="section">
-      <h2>Data Retention</h2>
+      <h2>
+        <span lang="en">Data Retention</span>
+        <span lang="bn">ডেটা ধারণ</span>
+      </h2>
       <p>
-        We keep personal data only as long as necessary for the purposes described in this Policy
-        or as required by law. You may request deletion of your account or certain data by contacting:
+        <span lang="en">
+          We keep personal data only as long as necessary for the purposes described in this Policy
+          or as required by law. You may request deletion of your account or certain data by contacting:
+        </span>
+        <span lang="bn">
+          আমরা ব্যক্তিগত ডেটা শুধুমাত্র এই নীতিতে বর্ণিত উদ্দেশ্যগুলির জন্য প্রয়োজনীয় সময় পর্যন্ত বা আইন দ্বারা প্রয়োজনীয় সময় পর্যন্ত রাখি। আপনি নিম্নলিখিত দ্বারা যোগাযোগ করে আপনার অ্যাকাউন্ট বা নির্দিষ্ট ডেটা মুছে দেওয়ার অনুরোধ করতে পারেন:
+        </span>
         <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a>.
       </p>
     </section>
 
     <section class="section">
-      <h2>Security</h2>
+      <h2>
+        <span lang="en">Security</span>
+        <span lang="bn">নিরাপত্তা</span>
+      </h2>
       <p>
-        We implement reasonable technical and organizational measures to protect information.
-        However, no method of transmission or storage is 100% secure.
+        <span lang="en">
+          We implement reasonable technical and organizational measures to protect information.
+          However, no method of transmission or storage is 100% secure.
+        </span>
+        <span lang="bn">
+          আমরা তথ্য রক্ষা করার জন্য যুক্তিসঙ্গত প্রযুক্তিগত এবং সাংগঠনিক ব্যবস্থা বাস্তবায়ন করি।
+          তবে, প্রেরণ বা সংরক্ষণের কোনও পদ্ধতি 100% নিরাপদ নয়।
+        </span>
       </p>
     </section>
 
     <section class="section">
-      <h2>Children's Privacy</h2>
+      <h2>
+        <span lang="en">Children's Privacy</span>
+        <span lang="bn">শিশু গোপনীয়তা</span>
+      </h2>
       <p>
-        The app is not directed to children under 13 (or the minimum age in your jurisdiction).
-        If you believe a child provided personal information, contact us so we can delete it.
+        <span lang="en">
+          The app is not directed to children under 13 (or the minimum age in your jurisdiction).
+          If you believe a child provided personal information, contact us so we can delete it.
+        </span>
+        <span lang="bn">
+          অ্যাপটি 13 বছরের কম বয়সী শিশুদের (বা আপনার বিচারিক অধিক্ষেত্রে ন্যূনতম বয়স) লক্ষ্য করে নির্মিত নয়।
+          যদি আপনি বিশ্বাস করেন যে একটি শিশু ব্যক্তিগত তথ্য প্রদান করেছে, আমাদের সাথে যোগাযোগ করুন যাতে আমরা এটি মুছে দিতে পারি।
+        </span>
       </p>
     </section>
 
     <section class="section">
-      <h2>Your Rights and Choices</h2>
+      <h2>
+        <span lang="en">Your Rights and Choices</span>
+        <span lang="bn">আপনার অধিকার এবং পছন্দ</span>
+      </h2>
       <p>
-        Depending on your location (for example, EU/EEA, UK, California), you may have rights to access,
-        correct, delete, or port your data, and object to certain processing.
-        You can also easily edit your profile information and request deletion of your account/data.
-        To exercise rights, contact:
+        <span lang="en">
+          Depending on your location (for example, EU/EEA, UK, California), you may have rights to access,
+          correct, delete, or port your data, and object to certain processing.
+          You can also easily edit your profile information and request deletion of your account/data.
+          To exercise rights, contact:
+        </span>
+        <span lang="bn">
+          আপনার অবস্থানের উপর নির্ভর করে (উদাহরণস্বরূপ, EU/EEA, UK, California), আপনার ডেটা অ্যাক্সেস করার, সংশোধন করার, মুছে ফেলার বা পোর্ট করার অধিকার থাকতে পারে এবং নির্দিষ্ট প্রক্রিয়াকরণে আপত্তি জানাতে পারে।
+          আপনি সহজেই আপনার প্রোফাইল তথ্য সম্পাদনা করতে এবং আপনার অ্যাকাউন্ট/ডেটা মুছে দেওয়ার অনুরোধ করতে পারেন।
+          অধিকার প্রয়োগ করতে যোগাযোগ করুন:
+        </span>
         <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a>.
       </p>
     </section>
 
     <section class="section">
-      <h2>International Transfers</h2>
+      <h2>
+        <span lang="en">International Transfers</span>
+        <span lang="bn">আন্তর্জাতিক স্থানান্তর</span>
+      </h2>
       <p>
-        Your information may be processed and stored in countries other than your own.
-        Where required, we rely on appropriate safeguards for international transfers.
+        <span lang="en">
+          Your information may be processed and stored in countries other than your own.
+          Where required, we rely on appropriate safeguards for international transfers.
+        </span>
+        <span lang="bn">
+          আপনার তথ্য আপনার নিজের দেশ ছাড়া অন্য দেশে প্রক্রিয়া করা এবং সংরক্ষিত হতে পারে।
+          যেখানে প্রয়োজন, আমরা আন্তর্জাতিক স্থানান্তরের জন্য উপযুক্ত সুরক্ষা নির্ভর করি।
+        </span>
       </p>
     </section>
 
     <section class="section">
-      <h2>Third-Party Services and SDKs</h2>
+      <h2>
+        <span lang="en">Third-Party Services and SDKs</span>
+        <span lang="bn">তৃতীয় পক্ষের পরিষেবা এবং SDK</span>
+      </h2>
       <ul>
-        <li><strong>Analytics:</strong> Google Analytics for Firebase (Google LLC).</li>
-        <li><strong>Crash reporting:</strong> Firebase Crashlytics (Google LLC).</li>
-        <li><strong>Push:</strong> Firebase Cloud Messaging (Google LLC).</li>
-        <li><strong>Authentication:</strong> Firebase Authentication / OAuth providers.</li>
+        <li>
+          <strong><span lang="en">Analytics:</span><span lang="bn">বিশ্লেষণ:</span></strong>
+          <span lang="en">Google Analytics for Firebase (Google LLC).</span>
+          <span lang="bn">Firebase-এর জন্য Google Analytics (Google LLC)।</span>
+        </li>
+        <li>
+          <strong><span lang="en">Crash reporting:</span><span lang="bn">ক্র্যাশ রিপোর্টিং:</span></strong>
+          <span lang="en">Firebase Crashlytics (Google LLC).</span>
+          <span lang="bn">Firebase Crashlytics (Google LLC)।</span>
+        </li>
+        <li>
+          <strong><span lang="en">Push:</span><span lang="bn">পুশ:</span></strong>
+          <span lang="en">Firebase Cloud Messaging (Google LLC).</span>
+          <span lang="bn">Firebase Cloud Messaging (Google LLC)।</span>
+        </li>
+        <li>
+          <strong><span lang="en">Authentication:</span><span lang="bn">প্রমাণীকরণ:</span></strong>
+          <span lang="en">Firebase Authentication / OAuth providers.</span>
+          <span lang="bn">Firebase প্রমাণীকরণ / OAuth প্রদানকারী।</span>
+        </li>
       </ul>
     </section>
 
     <section class="section">
-      <h2>Changes to This Policy</h2>
+      <h2>
+        <span lang="en">Changes to This Policy</span>
+        <span lang="bn">এই নীতিতে পরিবর্তন</span>
+      </h2>
       <p>
-        We may update this Policy to reflect changes to the app or applicable laws.
-        We will post the updated Policy with a new Effective date.
+        <span lang="en">
+          We may update this Policy to reflect changes to the app or applicable laws.
+          We will post the updated Policy with a new Effective date.
+        </span>
+        <span lang="bn">
+          আমরা অ্যাপ বা প্রযোজ্য আইনের পরিবর্তনগুলি প্রতিফলিত করার জন্য এই নীতিটি আপডেট করতে পারি।
+          আমরা নতুন কার্যকর তারিখ সহ আপডেট করা নীতি পোস্ট করব।
+        </span>
       </p>
     </section>
 
@@ -352,7 +586,7 @@
         <li>If the app is transferred to a new Developer Account, all associated Usage Information transfers with it</li>
       </ul>
 
-      <h3 style="margin-top: 16px; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: #113344;">Restrictions on Use</h3>
+      <h3>Restrictions on Use</h3>
       <p>You agree not to:</p>
       <ul>
         <li>Use the app beyond its intended functionality</li>
@@ -362,7 +596,7 @@
         <li>Attempt to bypass security measures or engage in unauthorized access</li>
       </ul>
 
-      <h3 style="margin-top: 16px; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: #113344;">Modification and Termination</h3>
+      <h3>Modification and Termination</h3>
       <ul>
         <li>Google Play or Sujan Prodhan (ButterflyDevs) may modify, discontinue, or limit access to any feature at any time</li>
         <li>We will provide reasonable advance notice for significant changes when possible</li>
@@ -372,14 +606,14 @@
         <li>If you do not agree with modifications, you may discontinue use of the app</li>
       </ul>
 
-      <h3 style="margin-top: 16px; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: #113344;">Data Retention & Termination</h3>
+      <h3>Data Retention & Termination</h3>
       <ul>
         <li>Usage data is retained as long as your app account or Developer Account is active</li>
         <li>Changes in your access or user login status do not affect retention of Usage Information</li>
         <li>Upon account termination, data handling follows Google Play policies and applicable laws</li>
       </ul>
 
-      <h3 style="margin-top: 16px; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: #113344;">Legal Jurisdiction</h3>
+      <h3>Legal Jurisdiction</h3>
       <p>
         These Terms and your use of BeautifulDinajpur are governed by the laws applicable through the 
         Google Play Developer Distribution Agreement, and disputes shall be resolved according to those terms. 
@@ -387,7 +621,7 @@
         of or relating to this app and your relationship with Sujan Prodhan (ButterflyDevs) and Google.
       </p>
 
-      <h3 style="margin-top: 16px; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: #113344;">Entire Agreement</h3>
+      <h3>Entire Agreement</h3>
       <p>
         These Terms, together with the Google Play Developer Distribution Agreement, Google Play Console Terms of Service, 
         and our Privacy Policy, constitute the entire legal agreement between you and both Google and Sujan Prodhan (ButterflyDevs). 
@@ -409,5 +643,34 @@
 
     <p class="footer">Copyright © BeautifulDinajpur • ButterflyDevs | Privacy Policy & Google Play Console Terms Updated April 2026</p>
   </main>
+
+  <script>
+    // Language toggle functionality
+    function setLanguage(lang) {
+      if (lang === 'bn') {
+        document.body.classList.add('bn-mode');
+        localStorage.setItem('language', 'bn');
+      } else {
+        document.body.classList.remove('bn-mode');
+        localStorage.setItem('language', 'en');
+      }
+      updateButtonStates(lang);
+    }
+
+    function updateButtonStates(lang) {
+      const buttons = document.querySelectorAll('.lang-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+      const activeBtn = lang === 'bn' ? buttons[1] : buttons[0];
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLanguage = localStorage.getItem('language') || 'en';
+      setLanguage(savedLanguage);
+    });
+  </script>
 </body>
 </html>
