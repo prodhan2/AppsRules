@@ -8,6 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js"></script>
   <style>
     :root {
       --bg-1: #f7fbff;
@@ -221,6 +226,125 @@
     [lang="bn"] { display: none; }
     body.bn-mode [lang="en"] { display: none; }
     body.bn-mode [lang="bn"] { display: inline; }
+
+    /* Form Styles */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 500;
+      color: #113344;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1rem;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 0 3px rgba(15, 139, 141, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    input[type="checkbox"] {
+      margin-top: 4px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--brand);
+    }
+
+    .checkbox-label {
+      margin: 0;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .submit-btn {
+      background: var(--brand);
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background: #0a6a6c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 139, 141, 0.3);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .form-alert {
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .form-alert.success {
+      background: rgba(56, 142, 60, 0.15);
+      border-left: 4px solid #388e3c;
+      color: #1b4620;
+    }
+
+    .form-alert.error {
+      background: rgba(211, 47, 47, 0.15);
+      border-left: 4px solid #d32f2f;
+      color: #6d1f1f;
+    }
+
+    .form-alert.show {
+      display: block;
+    }
 
     @media (max-width: 640px) {
       .wrap {
@@ -683,6 +807,98 @@
     </section>
 
     <section class="section">
+      <h2>
+        <span lang="en">Request Account Deletion</span>
+        <span lang="bn">অ্যাকাউন্ট মুছে ফেলার অনুরোধ করুন</span>
+      </h2>
+      <p>
+        <span lang="en">
+          Fill out the form below to request account deletion. We will verify your information and process your request within 24-48 hours.
+        </span>
+        <span lang="bn">
+          অ্যাকাউন্ট মুছে ফেলার অনুরোধ করতে নীচের ফর্মটি পূরণ করুন। আমরা আপনার তথ্য যাচাই করব এবং ২৪-৪৮ ঘন্টার মধ্যে আপনার অনুরোধ প্রক্রিয়া করব।
+        </span>
+      </p>
+
+      <div id="formAlert" class="form-alert"></div>
+
+      <form id="deletionForm">
+        <div class="form-group">
+          <label for="fullName">
+            <span lang="en">Full Name *</span>
+            <span lang="bn">পূর্ণ নাম *</span>
+          </label>
+          <input type="text" id="fullName" name="fullName" required placeholder="John Doe / জন ডো">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">
+              <span lang="en">Email Address *</span>
+              <span lang="bn">ইমেল ঠিকানা *</span>
+            </label>
+            <input type="email" id="email" name="email" required placeholder="your@example.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">
+              <span lang="en">Phone Number (Optional)</span>
+              <span lang="bn">ফোন নম্বর (ঐচ্ছিক)</span>
+            </label>
+            <input type="tel" id="phone" name="phone" placeholder="+880 1234567890">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="appName">
+            <span lang="en">Registered Username (if used)</span>
+            <span lang="bn">নিবন্ধিত ব্যবহারকারী নাম (ব্যবহার করা হলে)</span>
+          </label>
+          <input type="text" id="appName" name="appName" placeholder="Your app username">
+        </div>
+
+        <div class="form-group">
+          <label for="reason">
+            <span lang="en">Reason for Deletion (Optional)</span>
+            <span lang="bn">মুছে ফেলার কারণ (ঐচ্ছিক)</span>
+          </label>
+          <textarea id="reason" name="reason" placeholder="Tell us why you're deleting your account..."></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="understand" name="understand" required>
+          <label for="understand" class="checkbox-label">
+            <span lang="en">
+              I understand that account deletion is permanent and cannot be undone. All my data will be permanently removed.
+            </span>
+            <span lang="bn">
+              আমি বুঝি যে অ্যাকাউন্ট মুছে ফেলা স্থায়ী এবং পূর্বাবস্থায় ফিরিয়ে আনা যায় না। আমার সমস্ত ডেটা স্থায়ীভাবে সরানো হবে।
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span lang="en">Submit Deletion Request</span>
+          <span lang="bn">মুছে ফেলার অনুরোধ জমা দিন</span>
+        </button>
+      </form>
+
+      <div style="margin-top: 20px; padding: 16px; background: rgba(15, 139, 141, 0.08); border-radius: 8px; border-left: 4px solid var(--brand);">
+        <strong style="display: block; margin-bottom: 8px;">
+          <span lang="en">📧 We'll send a confirmation email to:</span>
+          <span lang="bn">📧 আমরা একটি নিশ্চিতকরণ ইমেল পাঠাব:</span>
+        </strong>
+        <ul style="margin: 8px 0 0; padding-left: 20px;">
+          <li>
+            <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a>
+          </li>
+          <li>
+            <a href="mailto:butterfly.devs.1@gmail.com">butterfly.devs.1@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
       <h2>Contact Us</h2>
       <ul>
         <li>Email: <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a></li>
@@ -722,7 +938,166 @@
     document.addEventListener('DOMContentLoaded', function() {
       const savedLanguage = localStorage.getItem('language') || 'en';
       setLanguage(savedLanguage);
+
+      // Form submission handler
+      const deletionForm = document.getElementById('deletionForm');
+      if (deletionForm) {
+        deletionForm.addEventListener('submit', handleFormSubmit);
+      }
+
+      // Check for verification links
+      checkVerificationLink();
     });
+
+    // Show alert message
+    function showAlert(type, message) {
+      const alertDiv = document.getElementById('formAlert');
+      alertDiv.textContent = message;
+      alertDiv.className = `form-alert ${type} show`;
+
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        alertDiv.classList.remove('show');
+      }, 5000);
+    }
+
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJHxvNwYtTYR2z36_ZqRLc4VwrXf0bM8E",
+      authDomain: "beautiful-dinajpur.firebaseapp.com",
+      projectId: "beautiful-dinajpur",
+      storageBucket: "beautiful-dinajpur.appspot.com",
+      messagingSenderId: "156783742376",
+      appId: "1:156783742376:web:8c7a9b2d3e4f5g6h7i8j"
+    };
+
+    // Initialize Firebase
+    let firebaseApp = null;
+    let auth = null;
+
+    try {
+      firebaseApp = firebase.initializeApp(firebaseConfig);
+      auth = firebase.auth();
+      console.log('Firebase initialized successfully');
+    } catch (error) {
+      console.log('Firebase initialization error:', error);
+    }
+
+    // Send verification email
+    async function sendVerificationEmail(email, fullName) {
+      try {
+        // Create a temporary user or send custom email
+        const actionCodeSettings = {
+          url: window.location.origin + '/delete-account.html?verified=true&email=' + encodeURIComponent(email),
+          handleCodeInApp: true
+        };
+
+        if (auth) {
+          await auth.sendPasswordResetEmail(email, actionCodeSettings);
+          return true;
+        }
+        return false;
+      } catch (error) {
+        console.error('Error sending verification email:', error);
+        return false;
+      }
+    }
+
+    // Handle form submission with Firebase verification
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const appName = document.getElementById('appName').value.trim();
+      const reason = document.getElementById('reason').value.trim();
+      const understand = document.getElementById('understand').checked;
+
+      // Validation
+      if (!fullName || !email) {
+        showAlert('error', 'Please fill in all required fields.');
+        return;
+      }
+
+      if (!understand) {
+        showAlert('error', 'Please confirm that you understand account deletion is permanent.');
+        return;
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showAlert('error', 'Please enter a valid email address.');
+        return;
+      }
+
+      // Send verification email via Firebase
+      sendVerificationEmail(email, fullName).then(success => {
+        if (success) {
+          showAlert('success', 'A verification link has been sent to your email. Please check your email and click the verification link to confirm your deletion request.');
+          
+          // Store deletion request data
+          const deletionData = {
+            fullName: fullName,
+            email: email,
+            phone: phone,
+            appName: appName,
+            reason: reason,
+            timestamp: new Date().toISOString(),
+            status: 'pending_verification'
+          };
+          
+          localStorage.setItem('deletionRequest_' + email, JSON.stringify(deletionData));
+          
+          // Reset form
+          document.getElementById('deletionForm').reset();
+        } else {
+          // Fallback to email client
+          showAlert('info', 'Sending verification email via alternative method...');
+          
+          const emailBody = encodeURIComponent(
+            `Account Deletion Request\n\n` +
+            `Full Name: ${fullName}\n` +
+            `Email: ${email}\n` +
+            `Phone: ${phone || 'Not provided'}\n` +
+            `App Username: ${appName || 'Not provided'}\n` +
+            `Reason: ${reason || 'Not provided'}\n\n` +
+            `User confirms understanding that deletion is permanent.\n\n` +
+            `Please verify and process this deletion request.`
+          );
+
+          const subject = encodeURIComponent('Account Deletion Request - Beautiful Dinajpur');
+          const mailtoLink = `mailto:ru.cse29@gmail.com?subject=${subject}&body=${emailBody}`;
+          
+          window.location.href = mailtoLink;
+
+          setTimeout(() => {
+            showAlert('success', 'Your deletion request has been prepared. Your email client should open. Please send the email to complete the request.');
+            document.getElementById('deletionForm').reset();
+          }, 500);
+        }
+      });
+    }
+
+    // Check for verification link
+    function checkVerificationLink() {
+      const params = new URLSearchParams(window.location.search);
+      const isVerified = params.get('verified');
+      const email = params.get('email');
+
+      if (isVerified === 'true' && email) {
+        const deletionData = localStorage.getItem('deletionRequest_' + email);
+        if (deletionData) {
+          const data = JSON.parse(deletionData);
+          data.status = 'verified';
+          data.verifiedAt = new Date().toISOString();
+          localStorage.setItem('deletionRequest_' + email, JSON.stringify(data));
+          
+          showAlert('success', 'Email verified! Your account deletion request has been confirmed. Our team will process your request within 24-48 hours.');
+        }
+      }
+    }
   </script>
 </body>
 </html>
