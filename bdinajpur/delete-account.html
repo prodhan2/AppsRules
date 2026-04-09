@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy | BeautifulDinajpur</title>
+  <meta name="description" content="Privacy Policy for BeautifulDinajpur app by Sujan Prodhan (ButterflyDevs)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-1: #f7fbff;
+      --bg-2: #eef8ef;
+      --bg-3: #fff8ee;
+      --ink: #1f2a33;
+      --muted: #4a5a66;
+      --card: rgba(255, 255, 255, 0.82);
+      --line: rgba(31, 42, 51, 0.12);
+      --brand: #0f8b8d;
+      --accent: #f4a261;
+      --shadow: 0 16px 40px rgba(15, 139, 141, 0.14);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+      background:
+        radial-gradient(1200px 700px at -5% -10%, #d5f5f3 0%, transparent 65%),
+        radial-gradient(900px 600px at 105% -10%, #ffe5cb 0%, transparent 62%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2) 50%, var(--bg-3));
+      min-height: 100vh;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.16;
+      background-image: radial-gradient(circle at 1px 1px, #23313f 0.6px, transparent 0);
+      background-size: 12px 12px;
+      mix-blend-mode: soft-light;
+    }
+
+    .wrap {
+      width: min(980px, 92vw);
+      margin: 48px auto;
+      position: relative;
+      z-index: 1;
+      animation: fade-up 0.7s ease-out both;
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      padding: 34px 26px;
+    }
+
+    .kicker {
+      display: inline-block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--brand);
+      background: rgba(15, 139, 141, 0.12);
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.05rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 1.04rem;
+      max-width: 72ch;
+    }
+
+    .meta {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: #1d3340;
+    }
+
+    .section {
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      animation: fade-up 0.7s ease-out both;
+    }
+
+    .section:nth-of-type(2) { animation-delay: 0.04s; }
+    .section:nth-of-type(3) { animation-delay: 0.08s; }
+    .section:nth-of-type(4) { animation-delay: 0.12s; }
+
+    h2 {
+      margin: 0 0 10px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.18rem, 2.2vw, 1.45rem);
+      line-height: 1.3;
+      color: #113344;
+    }
+
+    h3 {
+      margin: 16px 0 8px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.2;
+      color: #0f8b8d;
+      font-weight: 600;
+    }
+
+    p { margin: 8px 0 0; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 1.2rem;
+    }
+
+    li { margin: 6px 0; }
+
+    .footer {
+      margin: 22px 0 42px;
+      text-align: center;
+      color: #4e616f;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #0b6d70;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .language-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .lang-btn {
+      padding: 8px 14px;
+      border: none;
+      background: transparent;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .lang-btn.active {
+      background: var(--brand);
+      color: white;
+    }
+
+    .lang-btn:hover {
+      background: rgba(15, 139, 141, 0.15);
+    }
+
+    .lang-btn.active:hover {
+      background: #0a6a6c;
+    }
+
+    [lang="bn"] { display: none; }
+    body.bn-mode [lang="en"] { display: none; }
+    body.bn-mode [lang="bn"] { display: inline; }
+
+    @media (max-width: 640px) {
+      .wrap {
+        margin: 20px auto;
+        width: min(980px, 94vw);
+      }
+
+      .hero,
+      .section {
+        padding: 20px;
+      }
+
+      .subtitle {
+        font-size: 0.98rem;
+      }
+
+      .language-toggle {
+        top: 10px;
+        right: 10px;
+      }
+
+      .lang-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="language-toggle">
+    <button class="lang-btn active" onclick="setLanguage('en')">
+      <span lang="en">English</span>
+      <span lang="bn">ইংরেজি</span>
+    </button>
+    <button class="lang-btn" onclick="setLanguage('bn')">
+      <span lang="en">বাংলা</span>
+      <span lang="bn">বাংলা</span>
+    </button>
+  </div>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="kicker">
+        <span lang="en">BeautifulDinajpur</span>
+        <span lang="bn">বিউটিফুল দিনাজপুর</span>
+      </span>
+      <h1>
+        <span lang="en">Privacy Policy</span>
+        <span lang="bn">গোপনীয়তা নীতি</span>
+      </h1>
+      <p class="subtitle">
+        <span lang="en">
+          BeautifulDinajpur (package name: com.beautiful.dinajpur.app) is provided by Sujan Prodhan (ButterflyDevs).
+          This Privacy Policy explains how we collect, use, and protect information when you use the app.
+          By using BeautifulDinajpur, you agree to this Policy.
+        </span>
+        <span lang="bn">
+          বিউটিফুল দিনাজপুর (প্যাকেজ নাম: com.beautiful.dinajpur.app) সুজন প্রোধান (বাটারফ্লাইডেভস) দ্বারা প্রদান করা হয়।
+          এই গোপনীয়তা নীতি ব্যাখ্যা করে যে আমরা কীভাবে তথ্য সংগ্রহ, ব্যবহার এবং সুরক্ষা করি যখন আপনি অ্যাপটি ব্যবহার করেন।
+          বিউটিফুল দিনাজপুর ব্যবহার করে, আপনি এই নীতিতে সম্মত হন।
+        </span>
+      </p>
+      <div class="meta">
+        <span class="pill">
+          <span lang="en">Effective Date: 4/08/2026</span>
+          <span lang="bn">কার্যকর তারিখ: 4/08/2026</span>
+        </span>
+        <span class="pill">
+          <span lang="en">Country/Region: Bangladesh</span>
+          <span lang="bn">দেশ/অঞ্চল: বাংলাদেশ</span>
+        </span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Information We Collect</span>
+        <span lang="bn">আমরা যে তথ্য সংগ্রহ করি</span>
+      </h2>
+      <p>
+        <span lang="en">
+          Based on the current app features, BeautifulDinajpur collects only the information needed to provide
+          account access, directory features, user-submitted forms, and service interactions.
+        </span>
+        <span lang="bn">
+          বর্তমান অ্যাপ ফিচার অনুযায়ী, বিউটিফুল দিনাজপুর শুধুমাত্র অ্যাকাউন্ট অ্যাক্সেস, ডিরেক্টরি ফিচার,
+          ব্যবহারকারীর জমা দেওয়া ফর্ম, এবং সেবা-সংক্রান্ত ইন্টারঅ্যাকশনের জন্য প্রয়োজনীয় তথ্য সংগ্রহ করে।
+        </span>
+      </p>
+      <ul>
+        <li>
+          <span lang="en">Account information from sign-in, such as Google account email, display name, profile photo, and authentication status.</span>
+          <span lang="bn">সাইন-ইন থেকে প্রাপ্ত অ্যাকাউন্ট তথ্য, যেমন Google অ্যাকাউন্টের ইমেইল, নাম, প্রোফাইল ছবি এবং প্রমাণীকরণ অবস্থা।</span>
+        </li>
+        <li>
+          <span lang="en">Profile information you provide, such as name, mobile number, upazila/location, blood group, gender, birthday, Facebook profile, and image/profile picture URLs.</span>
+          <span lang="bn">আপনি প্রদান করা প্রোফাইল তথ্য, যেমন নাম, মোবাইল নম্বর, উপজেলা/লোকেশন, রক্তের গ্রুপ, লিঙ্গ, জন্মতারিখ, Facebook প্রোফাইল, এবং ছবি/প্রোফাইল ছবির URL।</span>
+        </li>
+        <li>
+          <span lang="en">Information submitted in service forms, such as student name, student ID, varsity email, personal email, phone number, Facebook link, blood group, birthday, address, thana, details, and image uploads.</span>
+          <span lang="bn">সেবা-সংক্রান্ত ফর্মে জমা দেওয়া তথ্য, যেমন ছাত্রের নাম, আইডি, ভর্তিচ্ছুক/বিশ্ববিদ্যালয় ইমেইল, ব্যক্তিগত ইমেইল, ফোন নম্বর, Facebook লিংক, রক্তের গ্রুপ, জন্মতারিখ, ঠিকানা, থানা, বিবরণ এবং আপলোড করা ছবি।</span>
+        </li>
+        <li>
+          <span lang="en">User-generated content and listings you submit, including bus data, housing/listing data, diagnostic center data, advertisements, quotes, and related descriptions.</span>
+          <span lang="bn">আপনি জমা দেওয়া ব্যবহারকারী-সৃষ্ট কনটেন্ট এবং তালিকা, যেমন বাসের তথ্য, বাসা/তালিকার তথ্য, ডায়াগনস্টিক সেন্টারের তথ্য, বিজ্ঞাপন, কোটস এবং সম্পর্কিত বিবরণ।</span>
+        </li>
+        <li>
+          <span lang="en">Device and app data needed for notifications and login, such as Firebase Cloud Messaging tokens, sign-in state, and saved preferences.</span>
+          <span lang="bn">বিজ্ঞপ্তি ও লগইনের জন্য প্রয়োজনীয় ডিভাইস ও অ্যাপ ডেটা, যেমন Firebase Cloud Messaging টোকেন, সাইন-ইন অবস্থা এবং সংরক্ষিত পছন্দসমূহ।</span>
+        </li>
+        <li>
+          <span lang="en">Basic device and usage information, such as device model, operating system version, locale/language, and app interactions used for analytics, debugging, and app improvement.</span>
+          <span lang="bn">বেসিক ডিভাইস ও ব্যবহার সংক্রান্ত তথ্য, যেমন ডিভাইস মডেল, অপারেটিং সিস্টেম সংস্করণ, লোকেল/ভাষা, এবং অ্যাপ ইন্টারঅ্যাকশন, যা বিশ্লেষণ, ডিবাগিং, এবং অ্যাপ উন্নতিতে ব্যবহৃত হয়।</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Data Safety Summary</span>
+        <span lang="bn">ডেটা সেফটি সারাংশ</span>
+      </h2>
+      <ul>
+        <li>
+          <span lang="en">We do not sell personal data.</span>
+          <span lang="bn">আমরা ব্যক্তিগত ডেটা বিক্রি করি না।</span>
+        </li>
+        <li>
+          <span lang="en">We do not collect your device contacts.</span>
+          <span lang="bn">আমরা আপনার ডিভাইসের কন্টাক্টস সংগ্রহ করি না।</span>
+        </li>
+        <li>
+          <span lang="en">We do not collect precise GPS location; only the location or upazila you manually provide is used.</span>
+          <span lang="bn">আমরা নির্ভুল GPS লোকেশন সংগ্রহ করি না; শুধুমাত্র আপনি নিজে প্রদান করা লোকেশন বা উপজেলা ব্যবহার করা হয়।</span>
+        </li>
+        <li>
+          <span lang="en">We do not use the microphone, call log, or SMS data.</span>
+          <span lang="bn">আমরা মাইক্রোফোন, কল লগ, বা SMS ডেটা ব্যবহার করি না।</span>
+        </li>
+        <li>
+          <span lang="en">Images and files are handled only when you choose to upload or save content inside the app.</span>
+          <span lang="bn">আপনি অ্যাপের মধ্যে কনটেন্ট আপলোড বা সেভ করতে চাইলে তবেই ছবি ও ফাইল ব্যবহৃত হয়।</span>
+        </li>
+        <li>
+          <span lang="en">Firebase data is used for authentication, storage, notifications, analytics, and crash reporting.</span>
+          <span lang="bn">Firebase ডেটা প্রমাণীকরণ, স্টোরেজ, বিজ্ঞপ্তি, বিশ্লেষণ, এবং ক্র্যাশ রিপোর্টিং-এর জন্য ব্যবহৃত হয়।</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Permissions and Purpose</span>
+        <span lang="bn">অনুমতি এবং উদ্দেশ্য</span>
+      </h2>
+      <ul>
+        <li>
+          <span lang="en">Location or upazila information that you manually provide to filter directories, listings, and service data.</span>
+          <span lang="bn">ডিরেক্টরি, তালিকা, এবং সেবা তথ্য ফিল্টার করার জন্য আপনি নিজে প্রদান করা লোকেশন বা উপজেলা তথ্য।</span>
+        </li>
+        <li>
+          <span lang="en">Photos and media access to select or upload profile images and post images.</span>
+          <span lang="bn">প্রোফাইল ছবি এবং পোস্টের ছবি নির্বাচন বা আপলোড করার জন্য ফটো ও মিডিয়া অ্যাক্সেস।</span>
+        </li>
+        <li>
+          <span lang="en">Mobile phone number or calling capability when you tap contact numbers inside the app.</span>
+          <span lang="bn">অ্যাপের ভেতরে থাকা কন্টাক্ট নম্বরে ট্যাপ করলে মোবাইল নম্বর বা কল করার সুবিধা।</span>
+        </li>
+        <li>
+          <span lang="en">No direct access to your device contacts is required for the current app features.</span>
+          <span lang="bn">বর্তমান অ্যাপ ফিচারের জন্য আপনার ডিভাইসের কন্টাক্টস-এ সরাসরি অ্যাক্সেস প্রয়োজন হয় না।</span>
+        </li>
+        <li>
+          <span lang="en">App-specific storage to cache content and keep files you choose to save inside the app.</span>
+          <span lang="bn">অ্যাপের ভেতরে আপনি যে ফাইল সেভ করতে চান তা ক্যাশ ও সংরক্ষণ করার জন্য অ্যাপ-নির্দিষ্ট স্টোরেজ।</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">How We Use Information</span>
+        <span lang="bn">আমরা তথ্য কীভাবে ব্যবহার করি</span>
+      </h2>
+      <ul>
+        <li>
+          <span lang="en">Provide and improve app functionality.</span>
+          <span lang="bn">অ্যাপ কার্যকারিতা প্রদান এবং উন্নত করুন।</span>
+        </li>
+        <li>
+          <span lang="en">Personalize content and features.</span>
+          <span lang="bn">বিষয়বস্তু এবং বৈশিষ্ট্য ব্যক্তিগতকৃত করুন।</span>
+        </li>
+        <li>
+          <span lang="en">Measure usage and better understand product performance.</span>
+          <span lang="bn">ব্যবহার পরিমাপ করুন এবং পণ্য পারফরম্যান্স আরও ভালভাবে বুঝুন।</span>
+        </li>
+        <li>
+          <span lang="en">Diagnose crashes and improve stability.</span>
+          <span lang="bn">ক্র্যাশ নির্ণয় করুন এবং স্থিতিশীলতা উন্নত করুন।</span>
+        </li>
+        <li>
+          <span lang="en">Send push notifications you opt into (you may disable in settings).</span>
+          <span lang="bn">আপনি অপ্ট-ইন পুশ বিজ্ঞপ্তি পাঠান (আপনি সেটিংসে অক্ষম করতে পারেন)।</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Sharing of Information</span>
+        <span lang="bn">তথ্য ভাগ করা</span>
+      </h2>
+      <ul>
+        <li>
+          <span lang="en">Analytics providers (for example, Google Analytics for Firebase).</span>
+          <span lang="bn">বিশ্লেষণ প্রদানকারী (উদাহরণস্বরূপ, ফায়ারবেসের জন্য Google Analytics)।</span>
+        </li>
+        <li>
+          <span lang="en">Crash reporting providers (for example, Firebase Crashlytics).</span>
+          <span lang="bn">ক্র্যাশ রিপোর্টিং প্রদানকারী (উদাহরণস্বরূপ, Firebase Crashlytics)।</span>
+        </li>
+        <li>
+          <span lang="en">Push notifications provider (for example, Firebase Cloud Messaging).</span>
+          <span lang="bn">পুশ বিজ্ঞপ্তি প্রদানকারী (উদাহরণস্বরূপ, Firebase Cloud Messaging)।</span>
+        </li>
+        <li>
+          <span lang="en">Authentication providers when you sign in (for example, email, OAuth).</span>
+          <span lang="bn">যখন আপনি সাইন ইন করেন তখন প্রমাণীকরণ প্রদানকারী (উদাহরণস্বরূপ, ইমেইল, OAuth)।</span>
+        </li>
+        <li>
+          <span lang="en">Service providers that help us operate the app (hosting, support) under confidentiality obligations.</span>
+          <span lang="bn">সেবা প্রদানকারী যারা আমাদের অ্যাপ পরিচালনা করতে সাহায্য করে (হোস্টিং, সমর্থন) গোপনীয়তা বাধ্যবাধকতার অধীনে।</span>
+        </li>
+        <li>
+          <span lang="en">Legal authorities if required by law, to protect rights, or investigate misuse.</span>
+          <span lang="bn">আইনি কর্তৃপক্ষ যদি আইন দ্বারা প্রয়োজন হয়, অধিকার রক্ষা করতে বা অপব্যবহার তদন্ত করতে।</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Data Retention</span>
+        <span lang="bn">ডেটা ধারণ</span>
+      </h2>
+      <p>
+        <span lang="en">
+          We keep personal data only as long as necessary for the purposes described in this Policy
+          or as required by law. You may request deletion of your account or certain data by contacting:
+        </span>
+        <span lang="bn">
+          আমরা ব্যক্তিগত ডেটা শুধুমাত্র এই নীতিতে বর্ণিত উদ্দেশ্যগুলির জন্য প্রয়োজনীয় সময় পর্যন্ত বা আইন দ্বারা প্রয়োজনীয় সময় পর্যন্ত রাখি। আপনি নিম্নলিখিত দ্বারা যোগাযোগ করে আপনার অ্যাকাউন্ট বা নির্দিষ্ট ডেটা মুছে দেওয়ার অনুরোধ করতে পারেন:
+        </span>
+        <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a>.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Security</span>
+        <span lang="bn">নিরাপত্তা</span>
+      </h2>
+      <p>
+        <span lang="en">
+          We implement reasonable technical and organizational measures to protect information.
+          However, no method of transmission or storage is 100% secure.
+        </span>
+        <span lang="bn">
+          আমরা তথ্য রক্ষা করার জন্য যুক্তিসঙ্গত প্রযুক্তিগত এবং সাংগঠনিক ব্যবস্থা বাস্তবায়ন করি।
+          তবে, প্রেরণ বা সংরক্ষণের কোনও পদ্ধতি 100% নিরাপদ নয়।
+        </span>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Children's Privacy</span>
+        <span lang="bn">শিশু গোপনীয়তা</span>
+      </h2>
+      <p>
+        <span lang="en">
+          BeautifulDinajpur contains helpful city information and does not include harmful or inappropriate content,
+          so children may use the app for informational purposes. If a child uses features that require personal
+          information, we recommend use under parent or guardian guidance. If you believe a child shared personal
+          information unintentionally, contact us and we will review and delete the data as required.
+        </span>
+        <span lang="bn">
+          বিউটিফুল দিনাজপুরে দরকারি শহরভিত্তিক তথ্য রয়েছে এবং এতে ক্ষতিকর বা অনুপযুক্ত কোনো কনটেন্ট নেই,
+          তাই শিশুরাও তথ্যভিত্তিক ব্যবহারের জন্য এই অ্যাপ ব্যবহার করতে পারবে। তবে যেসব ফিচারে ব্যক্তিগত তথ্য
+          দরকার হয়, সেগুলো অভিভাবক বা আইনগত অভিভাবকের তত্ত্বাবধানে ব্যবহার করার পরামর্শ দেওয়া হয়। যদি আপনার
+          মনে হয় কোনো শিশু অনিচ্ছাকৃতভাবে ব্যক্তিগত তথ্য শেয়ার করেছে, আমাদের সাথে যোগাযোগ করুন; আমরা প্রযোজ্য
+          নিয়ম অনুযায়ী তা পর্যালোচনা করে মুছে দেব।
+        </span>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Your Rights and Choices</span>
+        <span lang="bn">আপনার অধিকার এবং পছন্দ</span>
+      </h2>
+      <p>
+        <span lang="en">
+          Depending on your location (for example, EU/EEA, UK, California), you may have rights to access,
+          correct, delete, or port your data, and object to certain processing.
+          You can also easily edit your profile information and request deletion of your account/data.
+          To exercise rights, contact:
+        </span>
+        <span lang="bn">
+          আপনার অবস্থানের উপর নির্ভর করে (উদাহরণস্বরূপ, EU/EEA, UK, California), আপনার ডেটা অ্যাক্সেস করার, সংশোধন করার, মুছে ফেলার বা পোর্ট করার অধিকার থাকতে পারে এবং নির্দিষ্ট প্রক্রিয়াকরণে আপত্তি জানাতে পারে।
+          আপনি সহজেই আপনার প্রোফাইল তথ্য সম্পাদনা করতে এবং আপনার অ্যাকাউন্ট/ডেটা মুছে দেওয়ার অনুরোধ করতে পারেন।
+          অধিকার প্রয়োগ করতে যোগাযোগ করুন:
+        </span>
+        <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a>.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">International Transfers</span>
+        <span lang="bn">আন্তর্জাতিক স্থানান্তর</span>
+      </h2>
+      <p>
+        <span lang="en">
+          Your information may be processed and stored in countries other than your own.
+          Where required, we rely on appropriate safeguards for international transfers.
+        </span>
+        <span lang="bn">
+          আপনার তথ্য আপনার নিজের দেশ ছাড়া অন্য দেশে প্রক্রিয়া করা এবং সংরক্ষিত হতে পারে।
+          যেখানে প্রয়োজন, আমরা আন্তর্জাতিক স্থানান্তরের জন্য উপযুক্ত সুরক্ষা নির্ভর করি।
+        </span>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Third-Party Services and SDKs</span>
+        <span lang="bn">তৃতীয় পক্ষের পরিষেবা এবং SDK</span>
+      </h2>
+      <ul>
+        <li>
+          <strong><span lang="en">Analytics:</span><span lang="bn">বিশ্লেষণ:</span></strong>
+          <span lang="en">Google Analytics for Firebase (Google LLC).</span>
+          <span lang="bn">Firebase-এর জন্য Google Analytics (Google LLC)।</span>
+        </li>
+        <li>
+          <strong><span lang="en">Crash reporting:</span><span lang="bn">ক্র্যাশ রিপোর্টিং:</span></strong>
+          <span lang="en">Firebase Crashlytics (Google LLC).</span>
+          <span lang="bn">Firebase Crashlytics (Google LLC)।</span>
+        </li>
+        <li>
+          <strong><span lang="en">Push:</span><span lang="bn">পুশ:</span></strong>
+          <span lang="en">Firebase Cloud Messaging (Google LLC).</span>
+          <span lang="bn">Firebase Cloud Messaging (Google LLC)।</span>
+        </li>
+        <li>
+          <strong><span lang="en">Authentication:</span><span lang="bn">প্রমাণীকরণ:</span></strong>
+          <span lang="en">Firebase Authentication / OAuth providers.</span>
+          <span lang="bn">Firebase প্রমাণীকরণ / OAuth প্রদানকারী।</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Changes to This Policy</span>
+        <span lang="bn">এই নীতিতে পরিবর্তন</span>
+      </h2>
+      <p>
+        <span lang="en">
+          We may update this Policy to reflect changes to the app or applicable laws.
+          We will post the updated Policy with a new Effective date.
+        </span>
+        <span lang="bn">
+          আমরা অ্যাপ বা প্রযোজ্য আইনের পরিবর্তনগুলি প্রতিফলিত করার জন্য এই নীতিটি আপডেট করতে পারি।
+          আমরা নতুন কার্যকর তারিখ সহ আপডেট করা নীতি পোস্ট করব।
+        </span>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Google Play Console Terms of Service</h2>
+      <p>
+        BeautifulDinajpur is distributed through Google Play Store and is subject to the 
+        Google Play Console Terms of Service and the Google Play Developer Distribution Agreement (DDA).
+      </p>
+      
+      <h3>Applicable Terms</h3>
+      <p>
+        Your use of this app and our presence on Google Play is governed by Google LLC (and affiliated entities) 
+        Terms of Service. You must be at least 18 years of age and of legal age in your country to use this app. 
+        By downloading and using BeautifulDinajpur, you agree to the Google Play Terms of Service.
+      </p>
+
+      <h3>Usage Information & Account Management</h3>
+      <p>
+        When you interact with BeautifulDinajpur through Google Play and our services:
+      </p>
+      <ul>
+        <li>Google collects Usage Information about your interactions with the app</li>
+        <li>We collect device information, usage patterns, and performance metrics</li>
+        <li>This information helps us improve the app and provide better services</li>
+        <li>Usage data may be shared with authorized account owners for app management purposes</li>
+        <li>All data is processed according to Google's Privacy Policy and our Privacy Policy</li>
+      </ul>
+
+      <h3>Developer Account Management</h3>
+      <ul>
+        <li>The developer (Account Owner) is responsible for managing the Developer Account</li>
+        <li>Console Users authorized by the Account Owner may have access to certain functions</li>
+        <li>All Usage Information associated with the app is retained with the Developer Account</li>
+        <li>If the app is transferred to a new Developer Account, all associated Usage Information transfers with it</li>
+      </ul>
+
+      <h3>Restrictions on Use</h3>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the app beyond its intended functionality</li>
+        <li>Engage in, promote, or encourage illegal activity or abusive behavior</li>
+        <li>Disable, interfere with, reverse engineer, or circumvent any aspect of the app or services</li>
+        <li>Access any other Google product or service in violation of their terms of service</li>
+        <li>Attempt to bypass security measures or engage in unauthorized access</li>
+      </ul>
+
+      <h3>Modification and Termination</h3>
+      <ul>
+        <li>Google Play or Sujan Prodhan (ButterflyDevs) may modify, discontinue, or limit access to any feature at any time</li>
+        <li>We will provide reasonable advance notice for significant changes when possible</li>
+        <li>We may update these Terms with notice - changes become effective 30 days after posting (except for urgent changes)</li>
+        <li>Continued use of the app after changes constitutes your acceptance of the modified Terms</li>
+        <li>Google Play or developer may terminate access for violations of these Terms or Google Play policies</li>
+        <li>If you do not agree with modifications, you may discontinue use of the app</li>
+      </ul>
+
+      <h3>Data Retention & Termination</h3>
+      <ul>
+        <li>Usage data is retained as long as your app account or Developer Account is active</li>
+        <li>Changes in your access or user login status do not affect retention of Usage Information</li>
+        <li>Upon account termination, data handling follows Google Play policies and applicable laws</li>
+      </ul>
+
+      <h3>Legal Jurisdiction</h3>
+      <p>
+        These Terms and your use of BeautifulDinajpur are governed by the laws applicable through the 
+        Google Play Developer Distribution Agreement, and disputes shall be resolved according to those terms. 
+        The governing law and jurisdiction set forth in the Google Play DDA applies to all claims arising out 
+        of or relating to this app and your relationship with Sujan Prodhan (ButterflyDevs) and Google.
+      </p>
+
+      <h3>Entire Agreement</h3>
+      <p>
+        These Terms, together with the Google Play Developer Distribution Agreement, Google Play Console Terms of Service, 
+        and our Privacy Policy, constitute the entire legal agreement between you and both Google and Sujan Prodhan (ButterflyDevs). 
+        These terms completely replace any prior agreements relating to this app. In case of conflicts, 
+        the most specific applicable terms will take precedence.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Contact Us</h2>
+      <ul>
+        <li>Email: <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a></li>
+        <li>Website: <a href="https://sujanpro.netlify.app" target="_blank" rel="noopener noreferrer">sujanpro.netlify.app</a></li>
+        <li>Address: University of Rajshahi</li>
+        <li>Country/Region: Bangladesh</li>
+        <li>Developer: Sujan Prodhan (ButterflyDevs)</li>
+      </ul>
+    </section>
+
+    <p class="footer">Copyright © BeautifulDinajpur • ButterflyDevs | Privacy Policy & Google Play Console Terms Updated April 2026</p>
+  </main>
+
+  <script>
+    // Language toggle functionality
+    function setLanguage(lang) {
+      if (lang === 'bn') {
+        document.body.classList.add('bn-mode');
+        localStorage.setItem('language', 'bn');
+      } else {
+        document.body.classList.remove('bn-mode');
+        localStorage.setItem('language', 'en');
+      }
+      updateButtonStates(lang);
+    }
+
+    function updateButtonStates(lang) {
+      const buttons = document.querySelectorAll('.lang-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+      const activeBtn = lang === 'bn' ? buttons[1] : buttons[0];
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLanguage = localStorage.getItem('language') || 'en';
+      setLanguage(savedLanguage);
+    });
+  </script>
+</body>
+</html>
