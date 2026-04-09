@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy | BeautifulDinajpur</title>
-  <meta name="description" content="Privacy Policy for BeautifulDinajpur app by Sujan Prodhan (ButterflyDevs)." />
+  <title>Delete Account | BeautifulDinajpur</title>
+  <meta name="description" content="Account Deletion Policy for BeautifulDinajpur by Sujan Prodhan (ButterflyDevs)." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
@@ -19,6 +19,8 @@
       --line: rgba(31, 42, 51, 0.12);
       --brand: #0f8b8d;
       --accent: #f4a261;
+      --danger: #d32f2f;
+      --success: #388e3c;
       --shadow: 0 16px 40px rgba(15, 139, 141, 0.14);
       --radius: 18px;
     }
@@ -124,6 +126,10 @@
     .section:nth-of-type(2) { animation-delay: 0.04s; }
     .section:nth-of-type(3) { animation-delay: 0.08s; }
     .section:nth-of-type(4) { animation-delay: 0.12s; }
+    .section:nth-of-type(5) { animation-delay: 0.16s; }
+    .section:nth-of-type(6) { animation-delay: 0.20s; }
+    .section:nth-of-type(7) { animation-delay: 0.24s; }
+    .section:nth-of-type(8) { animation-delay: 0.28s; }
 
     h2 {
       margin: 0 0 10px;
@@ -151,6 +157,73 @@
 
     li { margin: 6px 0; }
 
+    .alert {
+      margin-top: 12px;
+      padding: 16px;
+      border-radius: 12px;
+      border-left: 4px solid;
+    }
+
+    .alert.warning {
+      background: rgba(244, 162, 97, 0.12);
+      border-color: #f4a261;
+      color: #6d4423;
+    }
+
+    .alert.info {
+      background: rgba(15, 139, 141, 0.12);
+      border-color: #0f8b8d;
+      color: #0a4749;
+    }
+
+    .alert.success {
+      background: rgba(56, 142, 60, 0.12);
+      border-color: #388e3c;
+      color: #1b4620;
+    }
+
+    .timeline {
+      margin-top: 16px;
+      padding: 20px;
+      background: rgba(15, 139, 141, 0.08);
+      border-radius: 12px;
+      border: 1px dashed var(--brand);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      width: 24px;
+      height: 24px;
+      background: var(--brand);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+      box-shadow: 0 0 0 4px rgba(15, 139, 141, 0.2);
+    }
+
+    .timeline-content h4 {
+      margin: 0 0 4px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1rem;
+      color: #113344;
+    }
+
+    .timeline-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
     .footer {
       margin: 22px 0 42px;
       text-align: center;
@@ -163,6 +236,21 @@
       color: #0b6d70;
       text-decoration-thickness: 2px;
       text-underline-offset: 2px;
+    }
+
+    .contact-box {
+      background: rgba(15, 139, 141, 0.08);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      margin-top: 16px;
+    }
+
+    .contact-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #113344;
+      font-family: "Space Grotesk", sans-serif;
     }
 
     @keyframes fade-up {
@@ -266,434 +354,577 @@
   <main class="wrap">
     <section class="hero">
       <span class="kicker">
-        <span lang="en">BeautifulDinajpur</span>
-        <span lang="bn">বিউটিফুল দিনাজপুর</span>
+        <span lang="en">Account Management</span>
+        <span lang="bn">অ্যাকাউন্ট ব্যবস্থাপনা</span>
       </span>
       <h1>
-        <span lang="en">Privacy Policy</span>
-        <span lang="bn">গোপনীয়তা নীতি</span>
+        <span lang="en">Delete Account</span>
+        <span lang="bn">অ্যাকাউন্ট মুছে ফেলুন</span>
       </h1>
       <p class="subtitle">
         <span lang="en">
-          BeautifulDinajpur (package name: com.beautiful.dinajpur.app) is provided by Sujan Prodhan (ButterflyDevs).
-          This Privacy Policy explains how we collect, use, and protect information when you use the app.
-          By using BeautifulDinajpur, you agree to this Policy.
+          Learn how to permanently delete your Beautiful Dinajpur account and all associated data.
+          This guide explains the deletion process, timeline, and data handling procedures.
         </span>
         <span lang="bn">
-          বিউটিফুল দিনাজপুর (প্যাকেজ নাম: com.beautiful.dinajpur.app) সুজন প্রোধান (বাটারফ্লাইডেভস) দ্বারা প্রদান করা হয়।
-          এই গোপনীয়তা নীতি ব্যাখ্যা করে যে আমরা কীভাবে তথ্য সংগ্রহ, ব্যবহার এবং সুরক্ষা করি যখন আপনি অ্যাপটি ব্যবহার করেন।
-          বিউটিফুল দিনাজপুর ব্যবহার করে, আপনি এই নীতিতে সম্মত হন।
+          আপনার Beautiful Dinajpur অ্যাকাউন্ট এবং সমস্ত সংযুক্ত ডেটা স্থায়ীভাবে মুছে ফেলার উপায় জানুন।
+          এই গাইড মুছে ফেলার প্রক্রিয়া, সময়সীমা এবং ডেটা পরিচালনা পদ্ধতি ব্যাখ্যা করে।
         </span>
       </p>
       <div class="meta">
         <span class="pill">
-          <span lang="en">Effective Date: 4/08/2026</span>
-          <span lang="bn">কার্যকর তারিখ: 4/08/2026</span>
+          <span lang="en">App: Beautiful Dinajpur</span>
+          <span lang="bn">অ্যাপ: Beautiful Dinajpur</span>
         </span>
         <span class="pill">
-          <span lang="en">Country/Region: Bangladesh</span>
-          <span lang="bn">দেশ/অঞ্চল: বাংলাদেশ</span>
+          <span lang="en">Package: com.beautiful.dinajpur.app</span>
+          <span lang="bn">প্যাকেজ: com.beautiful.dinajpur.app</span>
+        </span>
+        <span class="pill">
+          <span lang="en">Updated: April 2026</span>
+          <span lang="bn">আপডেট: এপ্রিল ২০২৬</span>
         </span>
       </div>
     </section>
 
     <section class="section">
       <h2>
-        <span lang="en">Information We Collect</span>
-        <span lang="bn">আমরা যে তথ্য সংগ্রহ করি</span>
+        <span lang="en">Account Deletion Policy</span>
+        <span lang="bn">অ্যাকাউন্ট মুছে ফেলার নীতি</span>
       </h2>
       <p>
         <span lang="en">
-          Based on the current app features, BeautifulDinajpur collects only the information needed to provide
-          account access, directory features, user-submitted forms, and service interactions.
+          Beautiful Dinajpur respects your privacy and your right to control your data.
+          If you wish to delete your account, we have outlined a clear process to ensure all your personal 
+          information is handled securely and permanently removed from our systems.
         </span>
         <span lang="bn">
-          বর্তমান অ্যাপ ফিচার অনুযায়ী, বিউটিফুল দিনাজপুর শুধুমাত্র অ্যাকাউন্ট অ্যাক্সেস, ডিরেক্টরি ফিচার,
-          ব্যবহারকারীর জমা দেওয়া ফর্ম, এবং সেবা-সংক্রান্ত ইন্টারঅ্যাকশনের জন্য প্রয়োজনীয় তথ্য সংগ্রহ করে।
+          Beautiful Dinajpur আপনার গোপনীয়তা এবং আপনার ডেটা নিয়ন্ত্রণের অধিকারকে সম্মান করে।
+          যদি আপনি আপনার অ্যাকাউন্ট মুছে ফেলতে চান, আমরা একটি স্পষ্ট প্রক্রিয়া রূপরেখা করেছি যাতে আপনার সমস্ত ব্যক্তিগত তথ্য 
+          সুরক্ষিতভাবে পরিচালিত হয় এবং আমাদের সিস্টেম থেকে স্থায়ীভাবে সরানো হয়।
         </span>
       </p>
-      <ul>
-        <li>
-          <span lang="en">Account information from sign-in, such as Google account email, display name, profile photo, and authentication status.</span>
-          <span lang="bn">সাইন-ইন থেকে প্রাপ্ত অ্যাকাউন্ট তথ্য, যেমন Google অ্যাকাউন্টের ইমেইল, নাম, প্রোফাইল ছবি এবং প্রমাণীকরণ অবস্থা।</span>
-        </li>
-        <li>
-          <span lang="en">Profile information you provide, such as name, mobile number, upazila/location, blood group, gender, birthday, Facebook profile, and image/profile picture URLs.</span>
-          <span lang="bn">আপনি প্রদান করা প্রোফাইল তথ্য, যেমন নাম, মোবাইল নম্বর, উপজেলা/লোকেশন, রক্তের গ্রুপ, লিঙ্গ, জন্মতারিখ, Facebook প্রোফাইল, এবং ছবি/প্রোফাইল ছবির URL।</span>
-        </li>
-        <li>
-          <span lang="en">Information submitted in service forms, such as student name, student ID, varsity email, personal email, phone number, Facebook link, blood group, birthday, address, thana, details, and image uploads.</span>
-          <span lang="bn">সেবা-সংক্রান্ত ফর্মে জমা দেওয়া তথ্য, যেমন ছাত্রের নাম, আইডি, ভর্তিচ্ছুক/বিশ্ববিদ্যালয় ইমেইল, ব্যক্তিগত ইমেইল, ফোন নম্বর, Facebook লিংক, রক্তের গ্রুপ, জন্মতারিখ, ঠিকানা, থানা, বিবরণ এবং আপলোড করা ছবি।</span>
-        </li>
-        <li>
-          <span lang="en">User-generated content and listings you submit, including bus data, housing/listing data, diagnostic center data, advertisements, quotes, and related descriptions.</span>
-          <span lang="bn">আপনি জমা দেওয়া ব্যবহারকারী-সৃষ্ট কনটেন্ট এবং তালিকা, যেমন বাসের তথ্য, বাসা/তালিকার তথ্য, ডায়াগনস্টিক সেন্টারের তথ্য, বিজ্ঞাপন, কোটস এবং সম্পর্কিত বিবরণ।</span>
-        </li>
-        <li>
-          <span lang="en">Device and app data needed for notifications and login, such as Firebase Cloud Messaging tokens, sign-in state, and saved preferences.</span>
-          <span lang="bn">বিজ্ঞপ্তি ও লগইনের জন্য প্রয়োজনীয় ডিভাইস ও অ্যাপ ডেটা, যেমন Firebase Cloud Messaging টোকেন, সাইন-ইন অবস্থা এবং সংরক্ষিত পছন্দসমূহ।</span>
-        </li>
-        <li>
-          <span lang="en">Basic device and usage information, such as device model, operating system version, locale/language, and app interactions used for analytics, debugging, and app improvement.</span>
-          <span lang="bn">বেসিক ডিভাইস ও ব্যবহার সংক্রান্ত তথ্য, যেমন ডিভাইস মডেল, অপারেটিং সিস্টেম সংস্করণ, লোকেল/ভাষা, এবং অ্যাপ ইন্টারঅ্যাকশন, যা বিশ্লেষণ, ডিবাগিং, এবং অ্যাপ উন্নতিতে ব্যবহৃত হয়।</span>
-        </li>
-      </ul>
+
+      <div class="alert info">
+        <span lang="en">
+          <strong>Important:</strong> Account deletion is permanent and cannot be undone.
+          All data associated with your account will be permanently removed.
+        </span>
+        <span lang="bn">
+          <strong>গুরুত্বপূর্ণ:</strong> অ্যাকাউন্ট মুছে ফেলা স্থায়ী এবং পূর্বাবস্থায় ফিরিয়ে আনা যায় না।
+          আপনার অ্যাকাউন্টের সাথে সম্পর্কিত সমস্ত ডেটা স্থায়ীভাবে সরানো হবে।
+        </span>
+      </div>
     </section>
 
     <section class="section">
       <h2>
-        <span lang="en">Data Safety Summary</span>
-        <span lang="bn">ডেটা সেফটি সারাংশ</span>
-      </h2>
-      <ul>
-        <li>
-          <span lang="en">We do not sell personal data.</span>
-          <span lang="bn">আমরা ব্যক্তিগত ডেটা বিক্রি করি না।</span>
-        </li>
-        <li>
-          <span lang="en">We do not collect your device contacts.</span>
-          <span lang="bn">আমরা আপনার ডিভাইসের কন্টাক্টস সংগ্রহ করি না।</span>
-        </li>
-        <li>
-          <span lang="en">We do not collect precise GPS location; only the location or upazila you manually provide is used.</span>
-          <span lang="bn">আমরা নির্ভুল GPS লোকেশন সংগ্রহ করি না; শুধুমাত্র আপনি নিজে প্রদান করা লোকেশন বা উপজেলা ব্যবহার করা হয়।</span>
-        </li>
-        <li>
-          <span lang="en">We do not use the microphone, call log, or SMS data.</span>
-          <span lang="bn">আমরা মাইক্রোফোন, কল লগ, বা SMS ডেটা ব্যবহার করি না।</span>
-        </li>
-        <li>
-          <span lang="en">Images and files are handled only when you choose to upload or save content inside the app.</span>
-          <span lang="bn">আপনি অ্যাপের মধ্যে কনটেন্ট আপলোড বা সেভ করতে চাইলে তবেই ছবি ও ফাইল ব্যবহৃত হয়।</span>
-        </li>
-        <li>
-          <span lang="en">Firebase data is used for authentication, storage, notifications, analytics, and crash reporting.</span>
-          <span lang="bn">Firebase ডেটা প্রমাণীকরণ, স্টোরেজ, বিজ্ঞপ্তি, বিশ্লেষণ, এবং ক্র্যাশ রিপোর্টিং-এর জন্য ব্যবহৃত হয়।</span>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>
-        <span lang="en">Permissions and Purpose</span>
-        <span lang="bn">অনুমতি এবং উদ্দেশ্য</span>
-      </h2>
-      <ul>
-        <li>
-          <span lang="en">Location or upazila information that you manually provide to filter directories, listings, and service data.</span>
-          <span lang="bn">ডিরেক্টরি, তালিকা, এবং সেবা তথ্য ফিল্টার করার জন্য আপনি নিজে প্রদান করা লোকেশন বা উপজেলা তথ্য।</span>
-        </li>
-        <li>
-          <span lang="en">Photos and media access to select or upload profile images and post images.</span>
-          <span lang="bn">প্রোফাইল ছবি এবং পোস্টের ছবি নির্বাচন বা আপলোড করার জন্য ফটো ও মিডিয়া অ্যাক্সেস।</span>
-        </li>
-        <li>
-          <span lang="en">Mobile phone number or calling capability when you tap contact numbers inside the app.</span>
-          <span lang="bn">অ্যাপের ভেতরে থাকা কন্টাক্ট নম্বরে ট্যাপ করলে মোবাইল নম্বর বা কল করার সুবিধা।</span>
-        </li>
-        <li>
-          <span lang="en">No direct access to your device contacts is required for the current app features.</span>
-          <span lang="bn">বর্তমান অ্যাপ ফিচারের জন্য আপনার ডিভাইসের কন্টাক্টস-এ সরাসরি অ্যাক্সেস প্রয়োজন হয় না।</span>
-        </li>
-        <li>
-          <span lang="en">App-specific storage to cache content and keep files you choose to save inside the app.</span>
-          <span lang="bn">অ্যাপের ভেতরে আপনি যে ফাইল সেভ করতে চান তা ক্যাশ ও সংরক্ষণ করার জন্য অ্যাপ-নির্দিষ্ট স্টোরেজ।</span>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>
-        <span lang="en">How We Use Information</span>
-        <span lang="bn">আমরা তথ্য কীভাবে ব্যবহার করি</span>
-      </h2>
-      <ul>
-        <li>
-          <span lang="en">Provide and improve app functionality.</span>
-          <span lang="bn">অ্যাপ কার্যকারিতা প্রদান এবং উন্নত করুন।</span>
-        </li>
-        <li>
-          <span lang="en">Personalize content and features.</span>
-          <span lang="bn">বিষয়বস্তু এবং বৈশিষ্ট্য ব্যক্তিগতকৃত করুন।</span>
-        </li>
-        <li>
-          <span lang="en">Measure usage and better understand product performance.</span>
-          <span lang="bn">ব্যবহার পরিমাপ করুন এবং পণ্য পারফরম্যান্স আরও ভালভাবে বুঝুন।</span>
-        </li>
-        <li>
-          <span lang="en">Diagnose crashes and improve stability.</span>
-          <span lang="bn">ক্র্যাশ নির্ণয় করুন এবং স্থিতিশীলতা উন্নত করুন।</span>
-        </li>
-        <li>
-          <span lang="en">Send push notifications you opt into (you may disable in settings).</span>
-          <span lang="bn">আপনি অপ্ট-ইন পুশ বিজ্ঞপ্তি পাঠান (আপনি সেটিংসে অক্ষম করতে পারেন)।</span>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>
-        <span lang="en">Sharing of Information</span>
-        <span lang="bn">তথ্য ভাগ করা</span>
-      </h2>
-      <ul>
-        <li>
-          <span lang="en">Analytics providers (for example, Google Analytics for Firebase).</span>
-          <span lang="bn">বিশ্লেষণ প্রদানকারী (উদাহরণস্বরূপ, ফায়ারবেসের জন্য Google Analytics)।</span>
-        </li>
-        <li>
-          <span lang="en">Crash reporting providers (for example, Firebase Crashlytics).</span>
-          <span lang="bn">ক্র্যাশ রিপোর্টিং প্রদানকারী (উদাহরণস্বরূপ, Firebase Crashlytics)।</span>
-        </li>
-        <li>
-          <span lang="en">Push notifications provider (for example, Firebase Cloud Messaging).</span>
-          <span lang="bn">পুশ বিজ্ঞপ্তি প্রদানকারী (উদাহরণস্বরূপ, Firebase Cloud Messaging)।</span>
-        </li>
-        <li>
-          <span lang="en">Authentication providers when you sign in (for example, email, OAuth).</span>
-          <span lang="bn">যখন আপনি সাইন ইন করেন তখন প্রমাণীকরণ প্রদানকারী (উদাহরণস্বরূপ, ইমেইল, OAuth)।</span>
-        </li>
-        <li>
-          <span lang="en">Service providers that help us operate the app (hosting, support) under confidentiality obligations.</span>
-          <span lang="bn">সেবা প্রদানকারী যারা আমাদের অ্যাপ পরিচালনা করতে সাহায্য করে (হোস্টিং, সমর্থন) গোপনীয়তা বাধ্যবাধকতার অধীনে।</span>
-        </li>
-        <li>
-          <span lang="en">Legal authorities if required by law, to protect rights, or investigate misuse.</span>
-          <span lang="bn">আইনি কর্তৃপক্ষ যদি আইন দ্বারা প্রয়োজন হয়, অধিকার রক্ষা করতে বা অপব্যবহার তদন্ত করতে।</span>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>
-        <span lang="en">Data Retention</span>
-        <span lang="bn">ডেটা ধারণ</span>
+        <span lang="en">How to Request Account Deletion</span>
+        <span lang="bn">অ্যাকাউন্ট মুছে ফেলার অনুরোধ কীভাবে করবেন</span>
       </h2>
       <p>
         <span lang="en">
-          We keep personal data only as long as necessary for the purposes described in this Policy
-          or as required by law. You may request deletion of your account or certain data by contacting:
+          To delete your account, please send a deletion request email to our support team.
+          Include the following information in your request:
         </span>
         <span lang="bn">
-          আমরা ব্যক্তিগত ডেটা শুধুমাত্র এই নীতিতে বর্ণিত উদ্দেশ্যগুলির জন্য প্রয়োজনীয় সময় পর্যন্ত বা আইন দ্বারা প্রয়োজনীয় সময় পর্যন্ত রাখি। আপনি নিম্নলিখিত দ্বারা যোগাযোগ করে আপনার অ্যাকাউন্ট বা নির্দিষ্ট ডেটা মুছে দেওয়ার অনুরোধ করতে পারেন:
-        </span>
-        <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a>.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>
-        <span lang="en">Security</span>
-        <span lang="bn">নিরাপত্তা</span>
-      </h2>
-      <p>
-        <span lang="en">
-          We implement reasonable technical and organizational measures to protect information.
-          However, no method of transmission or storage is 100% secure.
-        </span>
-        <span lang="bn">
-          আমরা তথ্য রক্ষা করার জন্য যুক্তিসঙ্গত প্রযুক্তিগত এবং সাংগঠনিক ব্যবস্থা বাস্তবায়ন করি।
-          তবে, প্রেরণ বা সংরক্ষণের কোনও পদ্ধতি 100% নিরাপদ নয়।
+          আপনার অ্যাকাউন্ট মুছে ফেলতে, আমাদের সাপোর্ট টিমকে একটি মুছে ফেলার অনুরোধ ইমেল পাঠান।
+          আপনার অনুরোধে নিম্নলিখিত তথ্য অন্তর্ভুক্ত করুন:
         </span>
       </p>
-    </section>
-
-    <section class="section">
-      <h2>
-        <span lang="en">Children's Privacy</span>
-        <span lang="bn">শিশু গোপনীয়তা</span>
-      </h2>
-      <p>
-        <span lang="en">
-          BeautifulDinajpur contains helpful city information and does not include harmful or inappropriate content,
-          so children may use the app for informational purposes. If a child uses features that require personal
-          information, we recommend use under parent or guardian guidance. If you believe a child shared personal
-          information unintentionally, contact us and we will review and delete the data as required.
-        </span>
-        <span lang="bn">
-          বিউটিফুল দিনাজপুরে দরকারি শহরভিত্তিক তথ্য রয়েছে এবং এতে ক্ষতিকর বা অনুপযুক্ত কোনো কনটেন্ট নেই,
-          তাই শিশুরাও তথ্যভিত্তিক ব্যবহারের জন্য এই অ্যাপ ব্যবহার করতে পারবে। তবে যেসব ফিচারে ব্যক্তিগত তথ্য
-          দরকার হয়, সেগুলো অভিভাবক বা আইনগত অভিভাবকের তত্ত্বাবধানে ব্যবহার করার পরামর্শ দেওয়া হয়। যদি আপনার
-          মনে হয় কোনো শিশু অনিচ্ছাকৃতভাবে ব্যক্তিগত তথ্য শেয়ার করেছে, আমাদের সাথে যোগাযোগ করুন; আমরা প্রযোজ্য
-          নিয়ম অনুযায়ী তা পর্যালোচনা করে মুছে দেব।
-        </span>
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>
-        <span lang="en">Your Rights and Choices</span>
-        <span lang="bn">আপনার অধিকার এবং পছন্দ</span>
-      </h2>
-      <p>
-        <span lang="en">
-          Depending on your location (for example, EU/EEA, UK, California), you may have rights to access,
-          correct, delete, or port your data, and object to certain processing.
-          You can also easily edit your profile information and request deletion of your account/data.
-          To exercise rights, contact:
-        </span>
-        <span lang="bn">
-          আপনার অবস্থানের উপর নির্ভর করে (উদাহরণস্বরূপ, EU/EEA, UK, California), আপনার ডেটা অ্যাক্সেস করার, সংশোধন করার, মুছে ফেলার বা পোর্ট করার অধিকার থাকতে পারে এবং নির্দিষ্ট প্রক্রিয়াকরণে আপত্তি জানাতে পারে।
-          আপনি সহজেই আপনার প্রোফাইল তথ্য সম্পাদনা করতে এবং আপনার অ্যাকাউন্ট/ডেটা মুছে দেওয়ার অনুরোধ করতে পারেন।
-          অধিকার প্রয়োগ করতে যোগাযোগ করুন:
-        </span>
-        <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a>.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>
-        <span lang="en">International Transfers</span>
-        <span lang="bn">আন্তর্জাতিক স্থানান্তর</span>
-      </h2>
-      <p>
-        <span lang="en">
-          Your information may be processed and stored in countries other than your own.
-          Where required, we rely on appropriate safeguards for international transfers.
-        </span>
-        <span lang="bn">
-          আপনার তথ্য আপনার নিজের দেশ ছাড়া অন্য দেশে প্রক্রিয়া করা এবং সংরক্ষিত হতে পারে।
-          যেখানে প্রয়োজন, আমরা আন্তর্জাতিক স্থানান্তরের জন্য উপযুক্ত সুরক্ষা নির্ভর করি।
-        </span>
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>
-        <span lang="en">Third-Party Services and SDKs</span>
-        <span lang="bn">তৃতীয় পক্ষের পরিষেবা এবং SDK</span>
-      </h2>
       <ul>
         <li>
-          <strong><span lang="en">Analytics:</span><span lang="bn">বিশ্লেষণ:</span></strong>
-          <span lang="en">Google Analytics for Firebase (Google LLC).</span>
-          <span lang="bn">Firebase-এর জন্য Google Analytics (Google LLC)।</span>
+          <span lang="en">Your registered email address</span>
+          <span lang="bn">আপনার নিবন্ধিত ইমেল ঠিকানা</span>
         </li>
         <li>
-          <strong><span lang="en">Crash reporting:</span><span lang="bn">ক্র্যাশ রিপোর্টিং:</span></strong>
-          <span lang="en">Firebase Crashlytics (Google LLC).</span>
-          <span lang="bn">Firebase Crashlytics (Google LLC)।</span>
+          <span lang="en">Your full name (as provided in your profile)</span>
+          <span lang="bn">আপনার সম্পূর্ণ নাম (আপনার প্রোফাইলে প্রদত্ত)</span>
         </li>
         <li>
-          <strong><span lang="en">Push:</span><span lang="bn">পুশ:</span></strong>
-          <span lang="en">Firebase Cloud Messaging (Google LLC).</span>
-          <span lang="bn">Firebase Cloud Messaging (Google LLC)।</span>
+          <span lang="en">Confirmation that you understand this action is permanent</span>
+          <span lang="bn">নিশ্চিতকরণ যে আপনি বুঝেছেন এই পদক্ষেপ স্থায়ী</span>
+        </li>
+      </ul>
+
+      <div class="contact-box">
+        <strong lang="en">Send your request to:</strong>
+        <strong lang="bn">আপনার অনুরোধ পাঠান:</strong>
+        <div style="margin-top: 12px;">
+          <p style="margin: 0;"><strong>Email 1:</strong> <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a></p>
+          <p style="margin: 8px 0 0;"><strong>Email 2:</strong> <a href="mailto:butterfly.devs.1@gmail.com">butterfly.devs.1@gmail.com</a></p>
+        </div>
+        <p style="margin: 12px 0 0; font-size: 0.95rem; color: var(--muted);">
+          <span lang="en">Use either email address to submit your account deletion request.</span>
+          <span lang="bn">আপনার অ্যাকাউন্ট মুছে ফেলার অনুরোধ জমা দিতে যেকোনো ইমেল ঠিকানা ব্যবহার করুন।</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Timeline for Account Deletion</span>
+        <span lang="bn">অ্যাকাউন্ট মুছে ফেলার সময়সীমা</span>
+      </h2>
+      <p>
+        <span lang="en">
+          Once you submit your deletion request, we follow this timeline to ensure your data is removed:
+        </span>
+        <span lang="bn">
+          একবার আপনি আপনার মুছে ফেলার অনুরোধ জমা দিলে, আমরা নিশ্চিত করার জন্য এই সময়সীমা অনুসরণ করি যে আপনার ডেটা সরানো হয়েছে:
+        </span>
+      </p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>
+              <span lang="en">Day 0 - Request Received</span>
+              <span lang="bn">দিন ০ - অনুরোধ গৃহীত</span>
+            </h4>
+            <p>
+              <span lang="en">
+                We receive and verify your account deletion request. Our support team will send you a confirmation email.
+              </span>
+              <span lang="bn">
+                আমরা আপনার অ্যাকাউন্ট মুছে ফেলার অনুরোধ পাই এবং যাচাই করি। আমাদের সাপোর্ট টিম আপনাকে একটি নিশ্চিতকরণ ইমেল পাঠাবে।
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>
+              <span lang="en">Day 1 - 3: Verification Period</span>
+              <span lang="bn">দিন ১ - ৩: যাচাইকরণ সময়কাল</span>
+            </h4>
+            <p>
+              <span lang="en">
+                We verify your identity and account ownership. If needed, we may request additional verification details.
+              </span>
+              <span lang="bn">
+                আমরা আপনার পরিচয় এবং অ্যাকাউন্ট মালিকানা যাচাই করি। প্রয়োজনে, আমরা অতিরিক্ত যাচাইকরণ বিবরণ চেতায়ন করতে পারি।
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>
+              <span lang="en">Day 4 - 7: Data Backup & Preparation</span>
+              <span lang="bn">দিন ৪ - ৭: ডেটা ব্যাকআপ এবং প্রস্তুতি</span>
+            </h4>
+            <p>
+              <span lang="en">
+                We create a secure backup of your data for compliance purposes (as required by law).
+                Your account is flagged for deletion during this period.
+              </span>
+              <span lang="bn">
+                আমরা সম্মতির উদ্দেশ্যে আপনার ডেটার একটি সুরক্ষিত ব্যাকআপ তৈরি করি (আইন দ্বারা প্রয়োজনীয়)।
+                এই সময়কালে আপনার অ্যাকাউন্ট মুছে ফেলার জন্য চিহ্নিত করা হয়।
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>
+              <span lang="en">Day 8 - 30: Complete Deletion</span>
+              <span lang="bn">দিন ৮ - ৩০: সম্পূর্ণ মুছে ফেলা</span>
+            </h4>
+            <p>
+              <span lang="en">
+                All data associated with your account is permanently deleted from our active systems.
+                A final confirmation email is sent to you.
+              </span>
+              <span lang="bn">
+                আপনার অ্যাকাউন্টের সাথে সম্পর্কিত সমস্ত ডেটা আমাদের সক্রিয় সিস্টেম থেকে স্থায়ীভাবে মুছে ফেলা হয়।
+                আপনাকে একটি চূড়ান্ত নিশ্চিতকরণ ইমেল পাঠানো হয়।
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert warning">
+        <span lang="en">
+          <strong>Timeline Summary:</strong> Complete account deletion takes approximately 7–30 days from the date
+          of your verified request. The exact timeline depends on data volume and verification requirements.
+        </span>
+        <span lang="bn">
+          <strong>সময়সীমা সারসংক্ষেপ:</strong> আপনার যাচাইকৃত অনুরোধের তারিখ থেকে সম্পূর্ণ অ্যাকাউন্ট মুছে ফেলা প্রায় ৭–৩০ দিন সময় নেয়।
+          সঠিক সময়সীমা ডেটা ভলিউম এবং যাচাইকরণ প্রয়োজনীয়তার উপর নির্ভর করে।
+        </span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">What Data Will Be Deleted</span>
+        <span lang="bn">কোন ডেটা মুছে ফেলা হবে</span>
+      </h2>
+      <p>
+        <span lang="en">
+          When you request account deletion, the following data associated with your account will be permanently removed:
+        </span>
+        <span lang="bn">
+          যখন আপনি অ্যাকাউন্ট মুছে ফেলার অনুরোধ করেন, আপনার অ্যাকাউন্টের সাথে সম্পর্কিত নিম্নলিখিত ডেটা স্থায়ীভাবে সরানো হবে:
+        </span>
+      </p>
+
+      <h3>
+        <span lang="en">Personal Profile Information</span>
+        <span lang="bn">ব্যক্তিগত প্রোফাইল তথ্য</span>
+      </h3>
+      <ul>
+        <li>
+          <span lang="en">Name, email address, and phone number</span>
+          <span lang="bn">নাম, ইমেল ঠিকানা এবং ফোন নম্বর</span>
         </li>
         <li>
-          <strong><span lang="en">Authentication:</span><span lang="bn">প্রমাণীকরণ:</span></strong>
-          <span lang="en">Firebase Authentication / OAuth providers.</span>
-          <span lang="bn">Firebase প্রমাণীকরণ / OAuth প্রদানকারী।</span>
+          <span lang="en">Profile picture and biographical information</span>
+          <span lang="bn">প্রোফাইল ছবি এবং জীবনী তথ্য</span>
+        </li>
+        <li>
+          <span lang="en">Location/upazila, blood group, gender, and birthday</span>
+          <span lang="bn">লোকেশন/উপজেলা, রক্তের গ্রুপ, লিঙ্গ এবং জন্মতারিখ</span>
+        </li>
+        <li>
+          <span lang="en">Social media links (Facebook profile URL)</span>
+          <span lang="bn">সোশ্যাল মিডিয়া লিংক (Facebook প্রোফাইল URL)</span>
+        </li>
+      </ul>
+
+      <h3>
+        <span lang="en">User-Generated Content</span>
+        <span lang="bn">ব্যবহারকারী-সৃষ্ট সামগ্রী</span>
+      </h3>
+      <ul>
+        <li>
+          <span lang="en">All service submissions (student forms, job applications, etc.)</span>
+          <span lang="bn">সমস্ত সেবা জমা (ছাত্র ফর্ম, চাকরি আবেদন, ইত্যাদি)</span>
+        </li>
+        <li>
+          <span lang="en">Listings and advertisements you posted (bus data, housing, diagnostic centers, etc.)</span>
+          <span lang="bn">আপনি পোস্ট করা তালিকা এবং বিজ্ঞাপন (বাস ডেটা, আবাসন, ডায়াগনস্টিক সেন্টার, ইত্যাদি)</span>
+        </li>
+        <li>
+          <span lang="en">Uploaded images, documents, and media files</span>
+          <span lang="bn">আপলোড করা ছবি, ডকুমেন্ট এবং মিডিয়া ফাইল</span>
+        </li>
+        <li>
+          <span lang="en">Comments, reviews, and any public contributions</span>
+          <span lang="bn">মন্তব্য, পর্যালোচনা এবং যেকোনো পাবলিক অবদান</span>
+        </li>
+      </ul>
+
+      <h3>
+        <span lang="en">Account Activity Data</span>
+        <span lang="bn">অ্যাকাউন্ট কার্যকলাপ ডেটা</span>
+      </h3>
+      <ul>
+        <li>
+          <span lang="en">Login history and session information</span>
+          <span lang="bn">লগইন ইতিহাস এবং সেশন তথ্য</span>
+        </li>
+        <li>
+          <span lang="en">Device tokens and push notification preferences</span>
+          <span lang="bn">ডিভাইস টোকেন এবং পুশ বিজ্ঞপ্তি পছন্দসমূহ</span>
+        </li>
+        <li>
+          <span lang="en">Authentication records and OAuth tokens</span>
+          <span lang="bn">প্রমাণীকরণ রেকর্ড এবং OAuth টোকেন</span>
+        </li>
+      </ul>
+
+      <h3>
+        <span lang="en">Analytics and Usage Data</span>
+        <span lang="bn">বিশ্লেষণ এবং ব্যবহার ডেটা</span>
+      </h3>
+      <ul>
+        <li>
+          <span lang="en">Analytics events and user interaction logs</span>
+          <span lang="bn">বিশ্লেষণ ইভেন্ট এবং ব্যবহারকারী ইন্টারঅ্যাকশন লগ</span>
+        </li>
+        <li>
+          <span lang="en">Crash reports and error logs associated with your account</span>
+          <span lang="bn">ক্র্যাশ রিপোর্ট এবং আপনার অ্যাকাউন্টের সাথে সংযুক্ত ত্রুটি লগ</span>
+        </li>
+        <li>
+          <span lang="en">Device and app usage statistics</span>
+          <span lang="bn">ডিভাইস এবং অ্যাপ ব্যবহার পরিসংখ্যান</span>
+        </li>
+      </ul>
+
+      <div class="alert success">
+        <span lang="en">
+          <strong>Note:</strong> Aggregate, anonymized data (data that cannot be linked to you) may be retained
+          for statistical, research, or compliance purposes, but your personal information will be completely removed.
+        </span>
+        <span lang="bn">
+          <strong>নোট:</strong> সমষ্টিগত, অনামীকৃত ডেটা (ডেটা যা আপনার সাথে যুক্ত করা যায় না) পরিসংখ্যান, গবেষণা বা সম্মতির উদ্দেশ্যে বজায় রাখা যেতে পারে,
+          কিন্তু আপনার ব্যক্তিগত তথ্য সম্পূর্ণরূপে সরানো হবে।
+        </span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">What Data Will NOT Be Deleted</span>
+        <span lang="bn">কোন ডেটা মুছে ফেলা হবে না</span>
+      </h2>
+      <p>
+        <span lang="en">
+          Certain data may be retained for legal, regulatory, or business continuity reasons:
+        </span>
+        <span lang="bn">
+          আইনি, নিয়ন্ত্রক বা ব্যবসায়িক ধারাবাহিকতার কারণে নির্দিষ্ট ডেটা বজায় রাখা যেতে পারে:
+        </span>
+      </p>
+      <ul>
+        <li>
+          <span lang="en">Financial or transaction records (if required by law)</span>
+          <span lang="bn">আর্থিক বা লেনদেন রেকর্ড (যদি আইন দ্বারা প্রয়োজন হয়)</span>
+        </li>
+        <li>
+          <span lang="en">Backup copies of your data (retained for disaster recovery for up to 90 days)</span>
+          <span lang="bn">আপনার ডেটার ব্যাকআপ কপি (দুর্যোগ পুনরুদ্ধারের জন্য ৯০ দিন পর্যন্ত বজায় রাখা হয়)</span>
+        </li>
+        <li>
+          <span lang="en">Legal holds or court orders may prevent immediate deletion</span>
+          <span lang="bn">আইনি হোল্ড বা কোর্টের আদেশ তাৎক্ষণিক মুছে ফেলা প্রতিরোধ করতে পারে</span>
+        </li>
+        <li>
+          <span lang="en">Anonymized or aggregated data used for research and improvement</span>
+          <span lang="bn">গবেষণা এবং উন্নতির জন্য ব্যবহৃত অনামীকৃত বা সমষ্টিগত ডেটা</span>
         </li>
       </ul>
     </section>
 
     <section class="section">
       <h2>
-        <span lang="en">Changes to This Policy</span>
-        <span lang="bn">এই নীতিতে পরিবর্তন</span>
+        <span lang="en">Before You Delete Your Account</span>
+        <span lang="bn">আপনার অ্যাকাউন্ট মুছে ফেলার আগে</span>
       </h2>
       <p>
         <span lang="en">
-          We may update this Policy to reflect changes to the app or applicable laws.
-          We will post the updated Policy with a new Effective date.
+          Please consider the following before requesting account deletion:
         </span>
         <span lang="bn">
-          আমরা অ্যাপ বা প্রযোজ্য আইনের পরিবর্তনগুলি প্রতিফলিত করার জন্য এই নীতিটি আপডেট করতে পারি।
-          আমরা নতুন কার্যকর তারিখ সহ আপডেট করা নীতি পোস্ট করব।
+          অ্যাকাউন্ট মুছে ফেলার অনুরোধ করার আগে অনুগ্রহ করে নিম্নলিখিত বিবেচনা করুন:
+        </span>
+      </p>
+      <ul>
+        <li>
+          <span lang="en">
+            <strong>Irreversible action:</strong> Account deletion is permanent. You cannot recover your account or data after deletion.
+          </span>
+          <span lang="bn">
+            <strong>অপরিবর্তনীয় পদক্ষেপ:</strong> অ্যাকাউন্ট মুছে ফেলা স্থায়ী। মুছে ফেলার পরে আপনি আপনার অ্যাকাউন্ট বা ডেটা পুনরুদ্ধার করতে পারবেন না।
+          </span>
+        </li>
+        <li>
+          <span lang="en">
+            <strong>Lost access:</strong> You will lose access to all services, listings, and content you created through Beautiful Dinajpur.
+          </span>
+          <span lang="bn">
+            <strong>অ্যাক্সেস হারানো:</strong> আপনি Beautiful Dinajpur-এর মাধ্যমে তৈরি সমস্ত পরিষেবা, তালিকা এবং সামগ্রীতে অ্যাক্সেস হারাবেন।
+          </span>
+        </li>
+        <li>
+          <span lang="en">
+            <strong>Download your data:</strong> Consider downloading or backing up any important data before deletion.
+          </span>
+          <span lang="bn">
+            <strong>আপনার ডেটা ডাউনলোড করুন:</strong> মুছে ফেলার আগে কোনো গুরুত্বপূর্ণ ডেটা ডাউনলোড বা ব্যাকআপ করার কথা বিবেচনা করুন।
+          </span>
+        </li>
+        <li>
+          <span lang="en">
+            <strong>Linked services:</strong> If your Beautiful Dinajpur account is linked to other services, those links will be severed.
+          </span>
+          <span lang="bn">
+            <strong>যুক্ত সেবা:</strong> যদি আপনার Beautiful Dinajpur অ্যাকাউন্ট অন্যান্য সেবার সাথে যুক্ত থাকে, তবে সেই লিংকগুলি বিচ্ছিন্ন হবে।
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span lang="en">Frequently Asked Questions</span>
+        <span lang="bn">অনেক জিজ্ঞাসিত প্রশ্ন</span>
+      </h2>
+
+      <h3>
+        <span lang="en">Can I undo account deletion?</span>
+        <span lang="bn">আমি কি অ্যাকাউন্ট মুছে ফেলা পূর্বাবস্থায় ফিরিয়ে আনতে পারি?</span>
+      </h3>
+      <p>
+        <span lang="en">
+          No. Account deletion is permanent and irreversible. Once deleted, your data cannot be recovered.
+        </span>
+        <span lang="bn">
+          না। অ্যাকাউন্ট মুছে ফেলা স্থায়ী এবং অপরিবর্তনীয়। একবার মুছে ফেলা হলে, আপনার ডেটা পুনরুদ্ধার করা যায় না।
+        </span>
+      </p>
+
+      <h3>
+        <span lang="en">How long does it take to delete my account?</span>
+        <span lang="bn">আমার অ্যাকাউন্ট মুছে ফেলতে কতদিন লাগে?</span>
+      </h3>
+      <p>
+        <span lang="en">
+          The complete deletion process takes 7–30 days from the date we verify your request.
+          You will receive confirmation emails at each stage of the process.
+        </span>
+        <span lang="bn">
+          আমরা আপনার অনুরোধ যাচাই করার তারিখ থেকে সম্পূর্ণ মুছে ফেলার প্রক্রিয়া ৭–৩০ দিন সময় নেয়।
+          আপনি প্রক্রিয়ার প্রতিটি পর্যায়ে নিশ্চিতকরণ ইমেল পাবেন।
+        </span>
+      </p>
+
+      <h3>
+        <span lang="en">What happens to my posts and listings after deletion?</span>
+        <span lang="bn">মুছে ফেলার পরে আমার পোস্ট এবং তালিকার কী হয়?</span>
+      </h3>
+      <p>
+        <span lang="en">
+          All your posts, listings, and user-generated content will be permanently deleted.
+          However, comments or replies from other users may remain visible if not editable.
+        </span>
+        <span lang="bn">
+          আপনার সমস্ত পোস্ট, তালিকা এবং ব্যবহারকারী-সৃষ্ট সামগ্রী স্থায়ীভাবে মুছে ফেলা হবে।
+          তবে, অন্যান্য ব্যবহারকারীদের মন্তব্য বা উত্তর দৃশ্যমান থাকতে পারে যদি সম্পাদনযোগ্য না হয়।
+        </span>
+      </p>
+
+      <h3>
+        <span lang="en">Will my data be sold or shared after deletion?</span>
+        <span lang="bn">মুছে ফেলার পরে আমার ডেটা বিক্রি বা ভাগ করা হবে?</span>
+      </h3>
+      <p>
+        <span lang="en">
+          No. After deletion, all your personal data is permanently removed and will not be sold,
+          shared, or used for any purpose. Only anonymized aggregate data may be retained.
+        </span>
+        <span lang="bn">
+          না। মুছে ফেলার পরে, আপনার সমস্ত ব্যক্তিগত ডেটা স্থায়ীভাবে সরানো হয় এবং বিক্রি, ভাগ বা কোনো উদ্দেশ্যে ব্যবহার করা হবে না।
+          শুধুমাত্র অনামীকৃত সমষ্টিগত ডেটা বজায় রাখা যেতে পারে।
+        </span>
+      </p>
+
+      <h3>
+        <span lang="en">What if I don't receive a confirmation email?</span>
+        <span lang="bn">যদি আমি কোনো নিশ্চিতকরণ ইমেল না পাই তাহলে কি করব?</span>
+      </h3>
+      <p>
+        <span lang="en">
+          If you don't receive a confirmation within 48 hours, please contact us directly at the email addresses provided.
+          Check your spam folder, and ensure you're using the correct email address associated with your account.
+        </span>
+        <span lang="bn">
+          যদি আপনি ৪৮ ঘন্টার মধ্যে কোনো নিশ্চিতকরণ না পান, তবে অনুগ্রহ করে সরাসরি প্রদত্ত ইমেল ঠিকানায় যোগাযোগ করুন।
+          আপনার স্প্যাম ফোল্ডার পরীক্ষা করুন এবং নিশ্চিত করুন যে আপনি আপনার অ্যাকাউন্টের সাথে যুক্ত সঠিক ইমেল ঠিকানা ব্যবহার করছেন।
         </span>
       </p>
     </section>
 
     <section class="section">
-      <h2>Google Play Console Terms of Service</h2>
-      <p>
-        BeautifulDinajpur is distributed through Google Play Store and is subject to the 
-        Google Play Console Terms of Service and the Google Play Developer Distribution Agreement (DDA).
-      </p>
-      
-      <h3>Applicable Terms</h3>
-      <p>
-        Your use of this app and our presence on Google Play is governed by Google LLC (and affiliated entities) 
-        Terms of Service. You must be at least 18 years of age and of legal age in your country to use this app. 
-        By downloading and using BeautifulDinajpur, you agree to the Google Play Terms of Service.
-      </p>
-
-      <h3>Usage Information & Account Management</h3>
-      <p>
-        When you interact with BeautifulDinajpur through Google Play and our services:
-      </p>
-      <ul>
-        <li>Google collects Usage Information about your interactions with the app</li>
-        <li>We collect device information, usage patterns, and performance metrics</li>
-        <li>This information helps us improve the app and provide better services</li>
-        <li>Usage data may be shared with authorized account owners for app management purposes</li>
-        <li>All data is processed according to Google's Privacy Policy and our Privacy Policy</li>
-      </ul>
-
-      <h3>Developer Account Management</h3>
-      <ul>
-        <li>The developer (Account Owner) is responsible for managing the Developer Account</li>
-        <li>Console Users authorized by the Account Owner may have access to certain functions</li>
-        <li>All Usage Information associated with the app is retained with the Developer Account</li>
-        <li>If the app is transferred to a new Developer Account, all associated Usage Information transfers with it</li>
-      </ul>
-
-      <h3>Restrictions on Use</h3>
-      <p>You agree not to:</p>
-      <ul>
-        <li>Use the app beyond its intended functionality</li>
-        <li>Engage in, promote, or encourage illegal activity or abusive behavior</li>
-        <li>Disable, interfere with, reverse engineer, or circumvent any aspect of the app or services</li>
-        <li>Access any other Google product or service in violation of their terms of service</li>
-        <li>Attempt to bypass security measures or engage in unauthorized access</li>
-      </ul>
-
-      <h3>Modification and Termination</h3>
-      <ul>
-        <li>Google Play or Sujan Prodhan (ButterflyDevs) may modify, discontinue, or limit access to any feature at any time</li>
-        <li>We will provide reasonable advance notice for significant changes when possible</li>
-        <li>We may update these Terms with notice - changes become effective 30 days after posting (except for urgent changes)</li>
-        <li>Continued use of the app after changes constitutes your acceptance of the modified Terms</li>
-        <li>Google Play or developer may terminate access for violations of these Terms or Google Play policies</li>
-        <li>If you do not agree with modifications, you may discontinue use of the app</li>
-      </ul>
-
-      <h3>Data Retention & Termination</h3>
-      <ul>
-        <li>Usage data is retained as long as your app account or Developer Account is active</li>
-        <li>Changes in your access or user login status do not affect retention of Usage Information</li>
-        <li>Upon account termination, data handling follows Google Play policies and applicable laws</li>
-      </ul>
-
-      <h3>Legal Jurisdiction</h3>
-      <p>
-        These Terms and your use of BeautifulDinajpur are governed by the laws applicable through the 
-        Google Play Developer Distribution Agreement, and disputes shall be resolved according to those terms. 
-        The governing law and jurisdiction set forth in the Google Play DDA applies to all claims arising out 
-        of or relating to this app and your relationship with Sujan Prodhan (ButterflyDevs) and Google.
-      </p>
-
-      <h3>Entire Agreement</h3>
-      <p>
-        These Terms, together with the Google Play Developer Distribution Agreement, Google Play Console Terms of Service, 
-        and our Privacy Policy, constitute the entire legal agreement between you and both Google and Sujan Prodhan (ButterflyDevs). 
-        These terms completely replace any prior agreements relating to this app. In case of conflicts, 
-        the most specific applicable terms will take precedence.
-      </p>
+      <h2>
+        <span lang="en">App Information</span>
+        <span lang="bn">অ্যাপ তথ্য</span>
+      </h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
+        <div style="padding: 16px; background: rgba(15, 139, 141, 0.08); border-radius: 12px; border: 1px solid var(--line);">
+          <strong style="display: block; margin-bottom: 8px; color: #113344;">
+            <span lang="en">App Name</span>
+            <span lang="bn">অ্যাপের নাম</span>
+          </strong>
+          <p style="margin: 0; color: var(--muted);">Beautiful Dinajpur</p>
+        </div>
+        <div style="padding: 16px; background: rgba(15, 139, 141, 0.08); border-radius: 12px; border: 1px solid var(--line);">
+          <strong style="display: block; margin-bottom: 8px; color: #113344;">
+            <span lang="en">Package Name</span>
+            <span lang="bn">প্যাকেজ নাম</span>
+          </strong>
+          <p style="margin: 0; color: var(--muted); font-family: monospace; font-size: 0.9rem;">
+            com.beautiful.dinajpur.app
+          </p>
+        </div>
+        <div style="padding: 16px; background: rgba(15, 139, 141, 0.08); border-radius: 12px; border: 1px solid var(--line);">
+          <strong style="display: block; margin-bottom: 8px; color: #113344;">
+            <span lang="en">Developer</span>
+            <span lang="bn">বিকাশক</span>
+          </strong>
+          <p style="margin: 0; color: var(--muted);">Sujan Prodhan (ButterflyDevs)</p>
+        </div>
+        <div style="padding: 16px; background: rgba(15, 139, 141, 0.08); border-radius: 12px; border: 1px solid var(--line);">
+          <strong style="display: block; margin-bottom: 8px; color: #113344;">
+            <span lang="en">Country/Region</span>
+            <span lang="bn">দেশ/অঞ্চল</span>
+          </strong>
+          <p style="margin: 0; color: var(--muted);">Bangladesh</p>
+        </div>
+      </div>
     </section>
 
     <section class="section">
-      <h2>Contact Us</h2>
-      <ul>
-        <li>Email: <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a></li>
-        <li>Website: <a href="https://sujanpro.netlify.app" target="_blank" rel="noopener noreferrer">sujanpro.netlify.app</a></li>
-        <li>Address: University of Rajshahi</li>
-        <li>Country/Region: Bangladesh</li>
-        <li>Developer: Sujan Prodhan (ButterflyDevs)</li>
-      </ul>
+      <h2>
+        <span lang="en">Contact & Support</span>
+        <span lang="bn">যোগাযোগ এবং সহায়তা</span>
+      </h2>
+      <p>
+        <span lang="en">
+          If you have any questions about account deletion or need further assistance, please reach out to our support team:
+        </span>
+        <span lang="bn">
+          অ্যাকাউন্ট মুছে ফেলা সম্পর্কে যদি আপনার কোনো প্রশ্ন থাকে বা আরও সহায়তা প্রয়োজন হয়, তবে অনুগ্রহ করে আমাদের সাপোর্ট টিমের কাছে পৌঁছান:
+        </span>
+      </p>
+      <div class="contact-box">
+        <strong lang="en">Email Support:</strong>
+        <strong lang="bn">ইমেল সাপোর্ট:</strong>
+        <p style="margin: 12px 0 0;">
+          <span lang="en"><strong>Primary:</strong></span>
+          <span lang="bn"><strong>প্রাথমিক:</strong></span>
+          <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a>
+        </p>
+        <p style="margin: 8px 0 0;">
+          <span lang="en"><strong>Secondary:</strong></span>
+          <span lang="bn"><strong>গৌণ:</strong></span>
+          <a href="mailto:butterfly.devs.1@gmail.com">butterfly.devs.1@gmail.com</a>
+        </p>
+
+        <strong style="display: block; margin-top: 16px;">
+          <span lang="en">Website</span>
+          <span lang="bn">ওয়েবসাইট</span>
+        </strong>
+        <p style="margin: 8px 0 0;">
+          <a href="https://sujanpro.netlify.app" target="_blank" rel="noopener noreferrer">sujanpro.netlify.app</a>
+        </p>
+
+        <strong style="display: block; margin-top: 16px;">
+          <span lang="en">Response Time</span>
+          <span lang="bn">প্রতিক্রিয়া সময়</span>
+        </strong>
+        <p style="margin: 8px 0 0; color: var(--muted);">
+          <span lang="en">We aim to respond to all deletion requests within 24–48 hours of receipt.</span>
+          <span lang="bn">আমরা সমস্ত মুছে ফেলার অনুরোধের প্রাপ্তির ২৪–৪৮ ঘন্টার মধ্যে প্রতিক্রিয়া জানাতে প্রতিশ্রুতিবদ্ধ।</span>
+        </p>
+      </div>
     </section>
 
-    <p class="footer">Copyright © BeautifulDinajpur • ButterflyDevs | Privacy Policy & Google Play Console Terms Updated April 2026</p>
+    <p class="footer">
+      Copyright © BeautifulDinajpur • ButterflyDevs | Account Deletion Policy Updated April 2026
+    </p>
   </main>
 
   <script>
