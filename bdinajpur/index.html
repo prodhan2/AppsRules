@@ -13,6 +13,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js"></script>
+  
   <style>
     :root {
       --bg-1: #f7fbff;
@@ -26,6 +27,10 @@
       --accent: #f4a261;
       --shadow: 0 16px 40px rgba(15, 139, 141, 0.14);
       --radius: 18px;
+      /* Appbar Blue Variables */
+      --appbar-bg-start: #1976d2;
+      --appbar-bg-end: #2196f3;
+      --appbar-text: #ffffff;
     }
 
     * { box-sizing: border-box; }
@@ -41,7 +46,170 @@
       min-height: 100vh;
       line-height: 1.75;
       overflow-x: hidden;
+      padding-top: 72px; /* Space for fixed appbar */
     }
+
+    /* ================= APPBAR STYLES ================= */
+    .appbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
+      background: linear-gradient(135deg, var(--appbar-bg-start), var(--appbar-bg-end));
+      box-shadow: 0 4px 20px rgba(25, 118, 210, 0.3);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .appbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .appbar-logo {
+      width: 36px;
+      height: 36px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--appbar-bg-start);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+
+    .appbar-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--appbar-text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .appbar-title span[lang="bn"] {
+      font-size: 0.95rem;
+      display: block;
+    }
+
+    .appbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .appbar-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      color: var(--appbar-text);
+      text-decoration: none;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .appbar-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .appbar-btn:active {
+      transform: translateY(0);
+    }
+
+    .appbar-btn.home {
+      background: white;
+      color: var(--appbar-bg-start);
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .appbar-btn.home:hover {
+      background: #f0f7ff;
+      color: #1565c0;
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.2);
+    }
+
+    .appbar-btn .icon {
+      font-size: 1rem;
+    }
+
+    /* Language toggle position adjustment for appbar */
+    .language-toggle {
+      top: 70px;
+    }
+
+    /* Mobile responsive for appbar */
+    @media (max-width: 768px) {
+      .appbar {
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .appbar-title {
+        font-size: 1rem;
+      }
+
+      .appbar-title span[lang="bn"] {
+        font-size: 0.9rem;
+      }
+
+      .appbar-nav {
+        width: 100%;
+        justify-content: center;
+        order: 3;
+      }
+
+      .appbar-btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        flex: 1;
+        justify-content: center;
+        max-width: 140px;
+      }
+
+      body {
+        padding-top: 110px; /* More space for wrapped appbar on mobile */
+      }
+
+      .language-toggle {
+        top: 65px;
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .appbar-nav {
+        flex-direction: row;
+        gap: 6px;
+      }
+      
+      body {
+        padding-top: 120px;
+      }
+    }
+    /* ================= END APPBAR STYLES ================= */
 
     .grain {
       position: fixed;
@@ -51,11 +219,12 @@
       background-image: radial-gradient(circle at 1px 1px, #23313f 0.6px, transparent 0);
       background-size: 12px 12px;
       mix-blend-mode: soft-light;
+      z-index: 0;
     }
 
     .wrap {
       width: min(980px, 92vw);
-      margin: 48px auto;
+      margin: 20px auto 42px;
       position: relative;
       z-index: 1;
       animation: fade-up 0.7s ease-out both;
@@ -171,14 +340,8 @@
     }
 
     @keyframes fade-up {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .language-toggle {
@@ -228,9 +391,7 @@
     body.bn-mode [lang="bn"] { display: inline; }
 
     /* Form Styles */
-    .form-group {
-      margin-bottom: 16px;
-    }
+    .form-group { margin-bottom: 16px; }
 
     label {
       display: block;
@@ -267,10 +428,7 @@
       box-shadow: 0 0 0 3px rgba(15, 139, 141, 0.1);
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
+    textarea { resize: vertical; min-height: 100px; }
 
     .checkbox-group {
       display: flex;
@@ -299,6 +457,13 @@
       gap: 16px;
     }
 
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .wrap { margin: 20px auto; width: min(980px, 94vw); }
+      .hero, .section { padding: 20px; }
+      .subtitle { font-size: 0.98rem; }
+    }
+
     .submit-btn {
       background: var(--brand);
       color: white;
@@ -319,9 +484,7 @@
       box-shadow: 0 8px 20px rgba(15, 139, 141, 0.3);
     }
 
-    .submit-btn:active {
-      transform: translateY(0);
-    }
+    .submit-btn:active { transform: translateY(0); }
 
     .form-alert {
       padding: 12px 16px;
@@ -342,38 +505,36 @@
       color: #6d1f1f;
     }
 
-    .form-alert.show {
-      display: block;
-    }
-
-    @media (max-width: 640px) {
-      .wrap {
-        margin: 20px auto;
-        width: min(980px, 94vw);
-      }
-
-      .hero,
-      .section {
-        padding: 20px;
-      }
-
-      .subtitle {
-        font-size: 0.98rem;
-      }
-
-      .language-toggle {
-        top: 10px;
-        right: 10px;
-      }
-
-      .lang-btn {
-        padding: 6px 10px;
-        font-size: 11px;
-      }
-    }
+    .form-alert.show { display: block; }
   </style>
 </head>
 <body>
+
+  <!-- 🔵 APPBAR START -->
+  <header class="appbar" role="navigation" aria-label="Main navigation">
+    <a href="https://bdinajpur.web.app" class="appbar-brand" aria-label="Home">
+      <div class="appbar-logo">BD</div>
+      <span class="appbar-title">
+        <span lang="en">BeautifulDinajpur</span>
+        <span lang="bn">বিউটিফুল দিনাজপুর</span>
+      </span>
+    </a>
+    
+    <nav class="appbar-nav">
+      <a href="https://bdinajpur.web.app" class="appbar-btn home" aria-label="Home Page">
+        <span class="icon">🏠</span>
+        <span lang="en">Home</span>
+        <span lang="bn">হোম</span>
+      </a>
+      <a href="https://sujanpro.netlify.app" class="appbar-btn" target="_blank" rel="noopener noreferrer" aria-label="About Developer">
+        <span class="icon">👤</span>
+        <span lang="en">About</span>
+        <span lang="bn">সম্পর্কে</span>
+      </a>
+    </nav>
+  </header>
+  <!-- 🔵 APPBAR END -->
+
   <div class="grain" aria-hidden="true"></div>
 
   <div class="language-toggle">
@@ -954,11 +1115,7 @@
       const alertDiv = document.getElementById('formAlert');
       alertDiv.textContent = message;
       alertDiv.className = `form-alert ${type} show`;
-
-      // Auto-hide after 5 seconds
-      setTimeout(() => {
-        alertDiv.classList.remove('show');
-      }, 5000);
+      setTimeout(() => { alertDiv.classList.remove('show'); }, 5000);
     }
 
     // Firebase Configuration
@@ -986,12 +1143,10 @@
     // Send verification email
     async function sendVerificationEmail(email, fullName) {
       try {
-        // Create a temporary user or send custom email
         const actionCodeSettings = {
           url: window.location.origin + '/delete-account.html?verified=true&email=' + encodeURIComponent(email),
           handleCodeInApp: true
         };
-
         if (auth) {
           await auth.sendPasswordResetEmail(email, actionCodeSettings);
           return true;
@@ -1006,7 +1161,6 @@
     // Handle form submission with Firebase verification
     function handleFormSubmit(e) {
       e.preventDefault();
-
       const fullName = document.getElementById('fullName').value.trim();
       const email = document.getElementById('email').value.trim();
       const phone = document.getElementById('phone').value.trim();
@@ -1014,64 +1168,30 @@
       const reason = document.getElementById('reason').value.trim();
       const understand = document.getElementById('understand').checked;
 
-      // Validation
-      if (!fullName || !email) {
-        showAlert('error', 'Please fill in all required fields.');
-        return;
-      }
-
-      if (!understand) {
-        showAlert('error', 'Please confirm that you understand account deletion is permanent.');
-        return;
-      }
-
-      // Email validation
+      if (!fullName || !email) { showAlert('error', 'Please fill in all required fields.'); return; }
+      if (!understand) { showAlert('error', 'Please confirm that you understand account deletion is permanent.'); return; }
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        showAlert('error', 'Please enter a valid email address.');
-        return;
-      }
+      if (!emailRegex.test(email)) { showAlert('error', 'Please enter a valid email address.'); return; }
 
-      // Send verification email via Firebase
       sendVerificationEmail(email, fullName).then(success => {
         if (success) {
           showAlert('success', 'A verification link has been sent to your email. Please check your email and click the verification link to confirm your deletion request.');
-          
-          // Store deletion request data
           const deletionData = {
-            fullName: fullName,
-            email: email,
-            phone: phone,
-            appName: appName,
-            reason: reason,
-            timestamp: new Date().toISOString(),
-            status: 'pending_verification'
+            fullName: fullName, email: email, phone: phone, appName: appName, reason: reason,
+            timestamp: new Date().toISOString(), status: 'pending_verification'
           };
-          
           localStorage.setItem('deletionRequest_' + email, JSON.stringify(deletionData));
-          
-          // Reset form
           document.getElementById('deletionForm').reset();
         } else {
-          // Fallback to email client
           showAlert('info', 'Sending verification email via alternative method...');
-          
           const emailBody = encodeURIComponent(
-            `Account Deletion Request\n\n` +
-            `Full Name: ${fullName}\n` +
-            `Email: ${email}\n` +
-            `Phone: ${phone || 'Not provided'}\n` +
-            `App Username: ${appName || 'Not provided'}\n` +
-            `Reason: ${reason || 'Not provided'}\n\n` +
-            `User confirms understanding that deletion is permanent.\n\n` +
-            `Please verify and process this deletion request.`
+            `Account Deletion Request\n\nFull Name: ${fullName}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n` +
+            `App Username: ${appName || 'Not provided'}\nReason: ${reason || 'Not provided'}\n\n` +
+            `User confirms understanding that deletion is permanent.\n\nPlease verify and process this deletion request.`
           );
-
           const subject = encodeURIComponent('Account Deletion Request - Beautiful Dinajpur');
           const mailtoLink = `mailto:ru.cse29@gmail.com?subject=${subject}&body=${emailBody}`;
-          
           window.location.href = mailtoLink;
-
           setTimeout(() => {
             showAlert('success', 'Your deletion request has been prepared. Your email client should open. Please send the email to complete the request.');
             document.getElementById('deletionForm').reset();
@@ -1085,7 +1205,6 @@
       const params = new URLSearchParams(window.location.search);
       const isVerified = params.get('verified');
       const email = params.get('email');
-
       if (isVerified === 'true' && email) {
         const deletionData = localStorage.getItem('deletionRequest_' + email);
         if (deletionData) {
@@ -1093,7 +1212,6 @@
           data.status = 'verified';
           data.verifiedAt = new Date().toISOString();
           localStorage.setItem('deletionRequest_' + email, JSON.stringify(data));
-          
           showAlert('success', 'Email verified! Your account deletion request has been confirmed. Our team will process your request within 24-48 hours.');
         }
       }
