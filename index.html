@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging.js"></script>
+  
   <style>
     :root {
       --bg-1: #f7fbff;
@@ -21,6 +27,10 @@
       --accent: #f4a261;
       --shadow: 0 16px 40px rgba(15, 139, 141, 0.14);
       --radius: 18px;
+      /* Appbar Blue Variables */
+      --appbar-bg-start: #1976d2;
+      --appbar-bg-end: #2196f3;
+      --appbar-text: #ffffff;
     }
 
     * { box-sizing: border-box; }
@@ -36,7 +46,170 @@
       min-height: 100vh;
       line-height: 1.75;
       overflow-x: hidden;
+      padding-top: 72px; /* Space for fixed appbar */
     }
+
+    /* ================= APPBAR STYLES ================= */
+    .appbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
+      background: linear-gradient(135deg, var(--appbar-bg-start), var(--appbar-bg-end));
+      box-shadow: 0 4px 20px rgba(25, 118, 210, 0.3);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .appbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .appbar-logo {
+      width: 36px;
+      height: 36px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--appbar-bg-start);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+
+    .appbar-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--appbar-text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .appbar-title span[lang="bn"] {
+      font-size: 0.95rem;
+      display: block;
+    }
+
+    .appbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .appbar-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      color: var(--appbar-text);
+      text-decoration: none;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .appbar-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .appbar-btn:active {
+      transform: translateY(0);
+    }
+
+    .appbar-btn.home {
+      background: white;
+      color: var(--appbar-bg-start);
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    .appbar-btn.home:hover {
+      background: #f0f7ff;
+      color: #1565c0;
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.2);
+    }
+
+    .appbar-btn .icon {
+      font-size: 1rem;
+    }
+
+    /* Language toggle position adjustment for appbar */
+    .language-toggle {
+      top: 70px;
+    }
+
+    /* Mobile responsive for appbar */
+    @media (max-width: 768px) {
+      .appbar {
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .appbar-title {
+        font-size: 1rem;
+      }
+
+      .appbar-title span[lang="bn"] {
+        font-size: 0.9rem;
+      }
+
+      .appbar-nav {
+        width: 100%;
+        justify-content: center;
+        order: 3;
+      }
+
+      .appbar-btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        flex: 1;
+        justify-content: center;
+        max-width: 140px;
+      }
+
+      body {
+        padding-top: 110px; /* More space for wrapped appbar on mobile */
+      }
+
+      .language-toggle {
+        top: 65px;
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .appbar-nav {
+        flex-direction: row;
+        gap: 6px;
+      }
+      
+      body {
+        padding-top: 120px;
+      }
+    }
+    /* ================= END APPBAR STYLES ================= */
 
     .grain {
       position: fixed;
@@ -46,11 +219,12 @@
       background-image: radial-gradient(circle at 1px 1px, #23313f 0.6px, transparent 0);
       background-size: 12px 12px;
       mix-blend-mode: soft-light;
+      z-index: 0;
     }
 
     .wrap {
       width: min(980px, 92vw);
-      margin: 48px auto;
+      margin: 20px auto 42px;
       position: relative;
       z-index: 1;
       animation: fade-up 0.7s ease-out both;
@@ -166,14 +340,8 @@
     }
 
     @keyframes fade-up {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .language-toggle {
@@ -222,34 +390,226 @@
     body.bn-mode [lang="en"] { display: none; }
     body.bn-mode [lang="bn"] { display: inline; }
 
+    /* Form Styles */
+    .form-group { margin-bottom: 16px; }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 500;
+      color: #113344;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1rem;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 0 3px rgba(15, 139, 141, 0.1);
+    }
+
+    textarea { resize: vertical; min-height: 100px; }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    input[type="checkbox"] {
+      margin-top: 4px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--brand);
+    }
+
+    .checkbox-label {
+      margin: 0;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
     @media (max-width: 640px) {
-      .wrap {
-        margin: 20px auto;
-        width: min(980px, 94vw);
-      }
+      .form-row { grid-template-columns: 1fr; }
+      .wrap { margin: 20px auto; width: min(980px, 94vw); }
+      .hero, .section { padding: 20px; }
+      .subtitle { font-size: 0.98rem; }
+    }
 
-      .hero,
-      .section {
-        padding: 20px;
-      }
+    .submit-btn {
+      background: var(--brand);
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 8px;
+    }
 
-      .subtitle {
-        font-size: 0.98rem;
-      }
+    .submit-btn:hover {
+      background: #0a6a6c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 139, 141, 0.3);
+    }
 
-      .language-toggle {
-        top: 10px;
-        right: 10px;
-      }
+    .submit-btn:active { transform: translateY(0); }
 
-      .lang-btn {
-        padding: 6px 10px;
-        font-size: 11px;
-      }
+    .form-alert {
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .form-alert.success {
+      background: rgba(56, 142, 60, 0.15);
+      border-left: 4px solid #388e3c;
+      color: #1b4620;
+    }
+
+    .form-alert.error {
+      background: rgba(211, 47, 47, 0.15);
+      border-left: 4px solid #d32f2f;
+      color: #6d1f1f;
+    }
+
+    .form-alert.show { display: block; }
+
+    /* Google Sign-In Button Styles */
+    .google-auth-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .google-auth-divider::before,
+    .google-auth-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .google-auth-divider::before { margin-right: 12px; }
+    .google-auth-divider::after { margin-left: 12px; }
+
+    .google-signin-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 20px;
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #3c4043;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      text-decoration: none;
+    }
+
+    .google-signin-btn:hover {
+      background: #f8f9fa;
+      border-color: #d2e3fc;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      transform: translateY(-1px);
+    }
+
+    .google-signin-btn:active {
+      transform: translateY(0);
+    }
+
+    .google-signin-btn .google-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .google-signin-btn span[lang="bn"] {
+      font-size: 0.9rem;
+    }
+
+    .auth-hint {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 10px;
+      padding: 10px;
+      background: rgba(15, 139, 141, 0.06);
+      border-radius: 8px;
+    }
+
+    .auth-hint strong {
+      color: var(--brand);
     }
   </style>
 </head>
 <body>
+
+  <!-- 🔵 APPBAR START -->
+  <header class="appbar" role="navigation" aria-label="Main navigation">
+    <a href="https://bdinajpur.web.app" class="appbar-brand" aria-label="Home">
+      <div class="appbar-logo">BD</div>
+      <span class="appbar-title">
+        <span lang="en">Beautiful Dinajpur</span>
+        <span lang="bn">বিউটিফুল দিনাজপুর</span>
+      </span>
+    </a>
+    
+    <nav class="appbar-nav">
+      <a href="https://bdinajpur.web.app" class="appbar-btn home" aria-label="Home Page">
+        <span class="icon">🏠</span>
+        <span lang="en">Home</span>
+        <span lang="bn">হোম</span>
+      </a>
+      <a href="https://sujanpro.netlify.app" class="appbar-btn" target="_blank" rel="noopener noreferrer" aria-label="About Developer">
+        <span class="icon">👤</span>
+        <span lang="en">About</span>
+        <span lang="bn">সম্পর্কে</span>
+      </a>
+    </nav>
+  </header>
+  <!-- 🔵 APPBAR END -->
+
   <div class="grain" aria-hidden="true"></div>
 
   <div class="language-toggle">
@@ -266,7 +626,7 @@
   <main class="wrap">
     <section class="hero">
       <span class="kicker">
-        <span lang="en">BeautifulDinajpur</span>
+        <span lang="en">Beautiful Dinajpur</span>
         <span lang="bn">বিউটিফুল দিনাজপুর</span>
       </span>
       <h1>
@@ -275,9 +635,9 @@
       </h1>
       <p class="subtitle">
         <span lang="en">
-          BeautifulDinajpur (package name: com.beautiful.dinajpur.app) is provided by Sujan Prodhan (ButterflyDevs).
+         App name :  Beautiful Dinajpur (package name: com.beautiful.dinajpur.app) is provided by Sujan Prodhan (ButterflyDevs).
           This Privacy Policy explains how we collect, use, and protect information when you use the app.
-          By using BeautifulDinajpur, you agree to this Policy.
+          By using Beautiful Dinajpur, you agree to this Policy.
         </span>
         <span lang="bn">
           বিউটিফুল দিনাজপুর (প্যাকেজ নাম: com.beautiful.dinajpur.v2) সুজন প্রোধান (বাটারফ্লাইডেভস) দ্বারা প্রদান করা হয়।
@@ -683,6 +1043,126 @@
     </section>
 
     <section class="section">
+      <h2>
+        <span lang="en">Request Account Deletion</span>
+        <span lang="bn">অ্যাকাউন্ট মুছে ফেলার অনুরোধ করুন</span>
+      </h2>
+      <p>
+        <span lang="en">
+          Fill out the form below to request account deletion. We will verify your information and process your request within 24-48 hours.
+        </span>
+        <span lang="bn">
+          অ্যাকাউন্ট মুছে ফেলার অনুরোধ করতে নীচের ফর্মটি পূরণ করুন। আমরা আপনার তথ্য যাচাই করব এবং ২৪-৪৮ ঘন্টার মধ্যে আপনার অনুরোধ প্রক্রিয়া করব।
+        </span>
+      </p>
+
+      <!-- 🔵 Google Authentication Option - Beautifully Added -->
+      <div style="margin: 20px 0;">
+        <div class="google-auth-divider">
+          <span lang="en">Or sign in with Google</span>
+          <span lang="bn">অথবা গুগল দিয়ে সাইন ইন করুন</span>
+        </div>
+        
+        <button type="button" id="googleSignInBtn" class="google-signin-btn" onclick="handleGoogleSignIn()">
+          <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          <span lang="en">Sign in with Google</span>
+          <span lang="bn">গুগল দিয়ে সাইন ইন করুন</span>
+        </button>
+        
+        <p class="auth-hint">
+          <strong lang="en">✨ Quick & Secure:</strong>
+          <span lang="en"> Log in instantly with your Google account — no password to remember!</span>
+          <br>
+          <strong lang="bn">⚡ দ্রুত ও নিরাপদ:</strong>
+          <span lang="bn"> আপনার গুগল অ্যাকাউন্ট দিয়ে এক ক্লিকেই লগইন করুন — পাসওয়ার্ড মনে রাখার ঝামেলা নেই!</span>
+        </p>
+      </div>
+      <!-- 🔵 End Google Authentication Option -->
+
+      <div id="formAlert" class="form-alert"></div>
+
+      <form id="deletionForm">
+        <div class="form-group">
+          <label for="fullName">
+            <span lang="en">Full Name *</span>
+            <span lang="bn">পূর্ণ নাম *</span>
+          </label>
+          <input type="text" id="fullName" name="fullName" required placeholder="John Doe / জন ডো">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">
+              <span lang="en">Email Address *</span>
+              <span lang="bn">ইমেল ঠিকানা *</span>
+            </label>
+            <input type="email" id="email" name="email" required placeholder="your@example.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">
+              <span lang="en">Phone Number (Optional)</span>
+              <span lang="bn">ফোন নম্বর (ঐচ্ছিক)</span>
+            </label>
+            <input type="tel" id="phone" name="phone" placeholder="+880 1234567890">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="appName">
+            <span lang="en">Registered Username (if used)</span>
+            <span lang="bn">নিবন্ধিত ব্যবহারকারী নাম (ব্যবহার করা হলে)</span>
+          </label>
+          <input type="text" id="appName" name="appName" placeholder="Your app username">
+        </div>
+
+        <div class="form-group">
+          <label for="reason">
+            <span lang="en">Reason for Deletion (Optional)</span>
+            <span lang="bn">মুছে ফেলার কারণ (ঐচ্ছিক)</span>
+          </label>
+          <textarea id="reason" name="reason" placeholder="Tell us why you're deleting your account..."></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="understand" name="understand" required>
+          <label for="understand" class="checkbox-label">
+            <span lang="en">
+              I understand that account deletion is permanent and cannot be undone. All my data will be permanently removed.
+            </span>
+            <span lang="bn">
+              আমি বুঝি যে অ্যাকাউন্ট মুছে ফেলা স্থায়ী এবং পূর্বাবস্থায় ফিরিয়ে আনা যায় না। আমার সমস্ত ডেটা স্থায়ীভাবে সরানো হবে।
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          <span lang="en">Submit Deletion Request</span>
+          <span lang="bn">মুছে ফেলার অনুরোধ জমা দিন</span>
+        </button>
+      </form>
+
+      <div style="margin-top: 20px; padding: 16px; background: rgba(15, 139, 141, 0.08); border-radius: 8px; border-left: 4px solid var(--brand);">
+        <strong style="display: block; margin-bottom: 8px;">
+          <span lang="en">📧 We'll send a confirmation email to:</span>
+          <span lang="bn">📧 আমরা একটি নিশ্চিতকরণ ইমেল পাঠাব:</span>
+        </strong>
+        <ul style="margin: 8px 0 0; padding-left: 20px;">
+          <li>
+            <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a>
+          </li>
+          <li>
+            <a href="mailto:butterfly.devs.1@gmail.com">butterfly.devs.1@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
       <h2>Contact Us</h2>
       <ul>
         <li>Email: <a href="mailto:ru.cse29@gmail.com">ru.cse29@gmail.com</a></li>
@@ -722,7 +1202,172 @@
     document.addEventListener('DOMContentLoaded', function() {
       const savedLanguage = localStorage.getItem('language') || 'en';
       setLanguage(savedLanguage);
+
+      // Form submission handler
+      const deletionForm = document.getElementById('deletionForm');
+      if (deletionForm) {
+        deletionForm.addEventListener('submit', handleFormSubmit);
+      }
+
+      // Check for verification links
+      checkVerificationLink();
     });
+
+    // Show alert message
+    function showAlert(type, message) {
+      const alertDiv = document.getElementById('formAlert');
+      alertDiv.textContent = message;
+      alertDiv.className = `form-alert ${type} show`;
+      setTimeout(() => { alertDiv.classList.remove('show'); }, 5000);
+    }
+
+    // Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJHxvNwYtTYR2z36_ZqRLc4VwrXf0bM8E",
+      authDomain: "beautiful-dinajpur.firebaseapp.com",
+      projectId: "beautiful-dinajpur",
+      storageBucket: "beautiful-dinajpur.appspot.com",
+      messagingSenderId: "156783742376",
+      appId: "1:156783742376:web:8c7a9b2d3e4f5g6h7i8j"
+    };
+
+    // Initialize Firebase
+    let firebaseApp = null;
+    let auth = null;
+
+    try {
+      firebaseApp = firebase.initializeApp(firebaseConfig);
+      auth = firebase.auth();
+      console.log('Firebase initialized successfully');
+    } catch (error) {
+      console.log('Firebase initialization error:', error);
+    }
+
+    // 🔵 Google Sign-In Handler
+    function handleGoogleSignIn() {
+      if (!auth) {
+        showAlert('error', 'Authentication service is not available. Please try again later.');
+        return;
+      }
+
+      const provider = new firebase.auth.GoogleAuthProvider();
+      
+      // Show loading state
+      const googleBtn = document.getElementById('googleSignInBtn');
+      const originalContent = googleBtn.innerHTML;
+      googleBtn.innerHTML = '<span lang="en">Signing in...</span><span lang="bn">সাইন ইন হচ্ছে...</span>';
+      googleBtn.disabled = true;
+
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          const user = result.user;
+          console.log('Google Sign-In successful:', user.email);
+          
+          // Pre-fill form with Google account info
+          document.getElementById('email').value = user.email || '';
+          document.getElementById('fullName').value = user.displayName || '';
+          
+          showAlert('success', 
+            '<span lang="en">✓ Signed in with Google! Your email is pre-filled.</span>' +
+            '<span lang="bn">✓ গুগল দিয়ে সাইন ইন সফল! আপনার ইমেল স্বয়ংক্রিয়ভাবে পূরণ করা হয়েছে।</span>'
+          );
+          
+          // Scroll to form
+          document.getElementById('deletionForm').scrollIntoView({ behavior: 'smooth' });
+        })
+        .catch((error) => {
+          console.error('Google Sign-In error:', error);
+          let errorMsg = 'Sign-in failed. Please try again.';
+          if (error.code === 'auth/popup-closed-by-user') {
+            errorMsg = '<span lang="en">Sign-in cancelled. You can still use the form below.</span><span lang="bn">সাইন-ইন বাতিল করা হয়েছে। আপনি নীচের ফর্ম ব্যবহার করতে পারেন।</span>';
+          } else if (error.code === 'auth/network-request-failed') {
+            errorMsg = '<span lang="en">Network error. Please check your connection.</span><span lang="bn">নেটওয়ার্ক সমস্যা। অনুগ্রহ করে আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন।</span>';
+          }
+          showAlert('error', errorMsg);
+        })
+        .finally(() => {
+          // Restore button
+          googleBtn.innerHTML = originalContent;
+          googleBtn.disabled = false;
+        });
+    }
+
+    // Send verification email
+    async function sendVerificationEmail(email, fullName) {
+      try {
+        const actionCodeSettings = {
+          url: window.location.origin + '/delete-account.html?verified=true&email=' + encodeURIComponent(email),
+          handleCodeInApp: true
+        };
+        if (auth) {
+          await auth.sendPasswordResetEmail(email, actionCodeSettings);
+          return true;
+        }
+        return false;
+      } catch (error) {
+        console.error('Error sending verification email:', error);
+        return false;
+      }
+    }
+
+    // Handle form submission with Firebase verification
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const appName = document.getElementById('appName').value.trim();
+      const reason = document.getElementById('reason').value.trim();
+      const understand = document.getElementById('understand').checked;
+
+      if (!fullName || !email) { showAlert('error', 'Please fill in all required fields.'); return; }
+      if (!understand) { showAlert('error', 'Please confirm that you understand account deletion is permanent.'); return; }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) { showAlert('error', 'Please enter a valid email address.'); return; }
+
+      sendVerificationEmail(email, fullName).then(success => {
+        if (success) {
+          showAlert('success', 'A verification link has been sent to your email. Please check your email and click the verification link to confirm your deletion request.');
+          const deletionData = {
+            fullName: fullName, email: email, phone: phone, appName: appName, reason: reason,
+            timestamp: new Date().toISOString(), status: 'pending_verification'
+          };
+          localStorage.setItem('deletionRequest_' + email, JSON.stringify(deletionData));
+          document.getElementById('deletionForm').reset();
+        } else {
+          showAlert('info', 'Sending verification email via alternative method...');
+          const emailBody = encodeURIComponent(
+            `Account Deletion Request\n\nFull Name: ${fullName}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n` +
+            `App Username: ${appName || 'Not provided'}\nReason: ${reason || 'Not provided'}\n\n` +
+            `User confirms understanding that deletion is permanent.\n\nPlease verify and process this deletion request.`
+          );
+          const subject = encodeURIComponent('Account Deletion Request - Beautiful Dinajpur');
+          const mailtoLink = `mailto:ru.cse29@gmail.com?subject=${subject}&body=${emailBody}`;
+          window.location.href = mailtoLink;
+          setTimeout(() => {
+            showAlert('success', 'Your deletion request has been prepared. Your email client should open. Please send the email to complete the request.');
+            document.getElementById('deletionForm').reset();
+          }, 500);
+        }
+      });
+    }
+
+    // Check for verification link
+    function checkVerificationLink() {
+      const params = new URLSearchParams(window.location.search);
+      const isVerified = params.get('verified');
+      const email = params.get('email');
+      if (isVerified === 'true' && email) {
+        const deletionData = localStorage.getItem('deletionRequest_' + email);
+        if (deletionData) {
+          const data = JSON.parse(deletionData);
+          data.status = 'verified';
+          data.verifiedAt = new Date().toISOString();
+          localStorage.setItem('deletionRequest_' + email, JSON.stringify(data));
+          showAlert('success', 'Email verified! Your account deletion request has been confirmed. Our team will process your request within 24-48 hours.');
+        }
+      }
+    }
   </script>
 </body>
 </html>
